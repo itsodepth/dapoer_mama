@@ -1,69 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-    <title>Pilih Size Box</title>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-    
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-    
-        main {
-            padding-top: 80px; /* Tambahkan padding agar tidak tumpang tindih dengan navbar */
-        }
-    
-        footer {
-            margin-top: 50px;
-            background-color: #b93f3f;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-    
-        .section-title {
-            font-family: 'Nunito', sans-serif;
-            font-weight: bold;
-            color: #5e875e;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-    
-        .card {
-            border: 2px solid #ddd; /* Tambahkan properti ini */
-            border-radius: 10px;    /* Tambahkan properti ini */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-        }
-    
-        .card-title {
-            font-weight: bold;
-        }
-    
-        .card-text {
-            color: #555;
-        }
-    </style>
-    
-</head>
-<body>
-    <header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+        <title>Pilih Size Box</title>
+        <style>
+            body {
+                font-family: "Nunito", sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            main {
+                padding-top: 80px; /* Tambahkan padding agar tidak tumpang tindih dengan navbar */
+            }
+
+            .section-title {
+                font-family: "Nunito", sans-serif;
+                font-weight: bold;
+                color: #5e875e;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .card {
+                border: 2px solid #ddd; /* Tambahkan properti ini */
+                border-radius: 10px; /* Tambahkan properti ini */
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+            }
+
+            .card-title {
+                font-weight: bold;
+            }
+
+            .card-text {
+                color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
                 <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
-                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <a class="navbar-brand d-flex align-items-center" href="../index.html">
                         <img src="../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
                         <span>Dapoer Mama</span>
                     </a>
@@ -76,7 +67,10 @@
                                 <a class="nav-link active" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Pesan</a>
+                                <a class="nav-link" href="#">Histori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pesan.html">Pesan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../login/index.html"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
@@ -87,99 +81,95 @@
             </nav>
         </header>
 
-    <main class="container my-5">
-        <h2 class="section-title">Pilih Size Box</h2>
-        <div class="row text-center">
-            <!-- Small Box -->
-            <div class="col-md-4 mb-4">
-                <a href="kecil/boxkecil.html" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <img src="../assets/images/size s.png" class="card-img-top" alt="Small Box" />
-                        <div class="card-body">
-                            <h5 class="card-title">Small (Kecil)</h5>
-                            <p class="card-text">Rp 30.000 per box</p>
+        <main class="container my-5">
+            <h2 class="section-title">Pilih Size Box</h2>
+            <div class="row text-center">
+                <!-- Small Box -->
+                <div class="col-md-4 mb-4">
+                    <a href="kecil/boxkecil.html" style="text-decoration: none; color: inherit">
+                        <div class="card">
+                            <img src="../assets/images/size s.png" class="card-img-top" alt="Small Box" />
+                            <div class="card-body">
+                                <h5 class="card-title">Small (Kecil)</h5>
+                                <p class="card-text">Rp 30.000 per box</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Medium Box -->
-            <div class="col-md-4 mb-4">
-                <a href="sedang/boxsedang.html" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <img src="../assets/images/size m.png" class="card-img-top" alt="Medium Box" />
-                        <div class="card-body">
-                            <h5 class="card-title">Medium (Sedang)</h5>
-                            <p class="card-text">Rp 40.000 per box</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Large Box -->
-            <div class="col-md-4 mb-4">
-                <a href="besar/boxbesar.html" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <img src="../assets/images/size l.png" class="card-img-top" alt="Large Box" />
-                        <div class="card-body">
-                            <h5 class="card-title">Large (Besar)</h5>
-                            <p class="card-text">Rp 50.000 per box</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Menu Rekomendasi Section -->
-        <section>
-            <h2 class="section-title">Menu Rekomendasi</h2>
-            <div class="row">
-                <div class="col-3">
-                    <div class="card h-100 mx-2">
-                        <img src="../assets/images/menu1.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 1" />
-                        <div class="card-body mb-0">
-                            <h5 class="card-title mb-2">Ayam Bakar Bujang</h5>
-                            <p class="card-text mb-0">Rp12.000 per box</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-3">
-                    <div class="card h-100 mx-2">
-                        <img src="../assets/images/menu2.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 2" />
-                        <div class="card-body">
-                            <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
-                            <p class="card-text mb-0">Rp10.000 per box</p>
+                <!-- Medium Box -->
+                <div class="col-md-4 mb-4">
+                    <a href="sedang/boxsedang.html" style="text-decoration: none; color: inherit">
+                        <div class="card">
+                            <img src="../assets/images/size m.png" class="card-img-top" alt="Medium Box" />
+                            <div class="card-body">
+                                <h5 class="card-title">Medium (Sedang)</h5>
+                                <p class="card-text">Rp 40.000 per box</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-3">
-                    <div class="card h-100 mx-2">
-                        <img src="../assets/images/menu3.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 3" />
-                        <div class="card-body">
-                            <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
-                            <p class="card-text mb-0">Rp14.000 per box</p>
+                <!-- Large Box -->
+                <div class="col-md-4 mb-4">
+                    <a href="besar/boxbesar.html" style="text-decoration: none; color: inherit">
+                        <div class="card">
+                            <img src="../assets/images/size l.png" class="card-img-top" alt="Large Box" />
+                            <div class="card-body">
+                                <h5 class="card-title">Large (Besar)</h5>
+                                <p class="card-text">Rp 50.000 per box</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card h-100 mx-2">
-                        <img src="../assets/images/menu4.jpeg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 4" />
-                        <div class="card-body">
-                            <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
-                            <p class="card-text mb-0">Rp20.000 per box</p>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-        </div>
-        </div>
-            </div>
-                </div>
-        </section>
-    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+            <!-- Menu Rekomendasi Section -->
+            <section>
+                <h2 class="section-title">Menu Rekomendasi</h2>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card h-100 mx-2">
+                            <img src="../assets/images/menu1.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 1" />
+                            <div class="card-body mb-0">
+                                <h5 class="card-title mb-2">Ayam Bakar Bujang</h5>
+                                <p class="card-text mb-0">Rp12.000 per box</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card h-100 mx-2">
+                            <img src="../assets/images/menu2.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 2" />
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
+                                <p class="card-text mb-0">Rp10.000 per box</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card h-100 mx-2">
+                            <img src="../assets/images/menu3.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 3" />
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
+                                <p class="card-text mb-0">Rp14.000 per box</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card h-100 mx-2">
+                            <img src="../assets/images/menu4.jpeg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 4" />
+                            <div class="card-body">
+                                <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
+                                <p class="card-text mb-0">Rp20.000 per box</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-<footer class="text-white py-5 mt-5" style="background-color: #b93f3f">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+    <footer class="text-white py-5 mt-5" style="background-color: #b93f3f">
         <div class="container">
             <div class="row">
                 <!-- Jam Operasional -->
@@ -242,7 +232,7 @@
                 <div class="col text-center">
                     <hr class="border border-light" />
                     <div class="d-flex justify-content-center pt-3">
-                        <img src="assets/images/payment.png" alt="Payment method" width="100%" />
+                        <img src="../assets/images/payment.png" alt="Payment method" width="100%" />
                     </div>
                 </div>
             </div>
