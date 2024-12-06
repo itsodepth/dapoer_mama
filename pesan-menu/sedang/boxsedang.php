@@ -1,3 +1,20 @@
+<?php
+include_once("koneksi.php");
+
+// Ambil data dari tabel menu
+$sql = "SELECT nama FROM menu";
+$result = $host->query($sql);
+$options = "";
+
+// Simpan opsi ke dalam variabel untuk digunakan pada semua dropdown
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $options .= "<option value='" . htmlspecialchars($row['nama']) . "'>" . htmlspecialchars($row['nama']) . "</option>";
+    }
+} else {
+    $options = "<option value=''>Tidak ada data</option>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,37 +52,6 @@
             text-decoration: none;
         }
 
-        .product-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .product-image {
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .product-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .form-section {
-            flex: 2;
-        }
-
-        .form-section label {
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .btn-confirm {
-            background-color: #b93f3f;
-            color: white;
-        }
-
         footer {
             margin-top: 50px;
             background-color: #b93f3f;
@@ -77,18 +63,6 @@
     </head>
 
     <body>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "catering";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Koneksi gagal: " . $conn->connect_error);
-        }
-        ?>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
                 <div class="container-fluid">
@@ -100,8 +74,8 @@
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse d-flex" id="navbarNav">
-                        <ul class="navbar-nav ms-auto py-auto align-items-center">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" href="../../index.html">Home</a>
                             </li>
@@ -113,7 +87,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../../profile-screen/profile.html"><i
-                                        class="bi bi-person-circle" style="font-size: 28px"></i></a>
+                                        class="bi bi-person-circle"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -124,7 +98,7 @@
             <a href="../pesan.html" class="back-button"><i class="bi bi-arrow-left-circle"></i></a>
             <div class="product-container">
                 <div class="product-image">
-                    <img src="../../assets/images/size s.png" alt="Box Kecil" />
+                    <img src="../../assets/images/size m.png" alt="Box Sedang" />
                 </div>
                 <div class="form-section">
                     <form method="POST" action="proses_transaksi.php">
