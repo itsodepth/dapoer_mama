@@ -1,9 +1,8 @@
 <?php
 $host = mysqli_connect("localhost", "root", "", "catering");
-if($host){
+if ($host) {
     echo "Koneksi berhasil";
-} else{
+} else {
     echo "Koneksi gagal!" . mysqli_connect_error();
     die();
 }
-?>

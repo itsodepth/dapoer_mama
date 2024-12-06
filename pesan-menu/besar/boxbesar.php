@@ -1,20 +1,3 @@
-<?php
-include_once("koneksi.php");
-
-// Ambil data dari tabel menu
-$sql = "SELECT nama FROM menu";
-$result = $host->query($sql);
-$options = "";
-
-// Simpan opsi ke dalam variabel untuk digunakan pada semua dropdown
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $options .= "<option value='" . htmlspecialchars($row['nama']) . "'>" . htmlspecialchars($row['nama']) . "</option>";
-    }
-} else {
-    $options = "<option value=''>Tidak ada data</option>";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +35,37 @@ if ($result->num_rows > 0) {
             text-decoration: none;
         }
 
+        .product-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .product-image {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .form-section {
+            flex: 2;
+        }
+
+        .form-section label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .btn-confirm {
+            background-color: #b93f3f;
+            color: white;
+        }
+
         footer {
             margin-top: 50px;
             background-color: #b93f3f;
@@ -63,6 +77,18 @@ if ($result->num_rows > 0) {
     </head>
 
     <body>
+        <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "catering";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Koneksi gagal: " . $conn->connect_error);
+    }
+    ?>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
                 <div class="container-fluid">
@@ -74,8 +100,8 @@ if ($result->num_rows > 0) {
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse d-flex" id="navbarNav">
+                        <ul class="navbar-nav ms-auto py-auto align-items-center">
                             <li class="nav-item">
                                 <a class="nav-link active" href="../../index.html">Home</a>
                             </li>
@@ -87,7 +113,7 @@ if ($result->num_rows > 0) {
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../../profile-screen/profile.html"><i
-                                        class="bi bi-person-circle"></i></a>
+                                        class="bi bi-person-circle" style="font-size: 28px"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -105,40 +131,40 @@ if ($result->num_rows > 0) {
                         <div class="mb-3">
                             <label for="isian1" class="form-label">Isian box (max 5):</label>
                             <?php
-                            $query = "SELECT ib.id_isian, ib.nama_isian, ib.harga, kb.nama_kategori 
+                        $query = "SELECT ib.id_isian, ib.nama_isian, ib.harga, kb.nama_kategori 
                                     FROM isian_box ib 
                                     JOIN kategori_isian_box kb ON ib.id_kategori = kb.id_kategori";
-                            $result = $conn->query($query);
+                        $result = $conn->query($query);
 
-                            for ($i = 1; $i <= 5; $i++) {
-                                echo '<select class="form-select mb-2" name="isian_box[]" id="isian' . $i . '"><option selected>Pilih isian box</option>';
-                                while ($row = $result->fetch_assoc()) {
-                                    if (
-                                        ($i === 1 && $row['nama_kategori'] === 'Lauk Utama') ||
-                                        ($i === 2 && $row['nama_kategori'] === 'Lauk Pauk') ||
-                                        ($i === 3 && $row['nama_kategori'] === 'Lalapan') ||
-                                        ($i === 4 && $row['nama_kategori'] === 'Sambal') ||
-                                        ($i === 5 && $row['nama_kategori'] === 'Kerupuk')
-                                    ) {
-                                        echo '<option value="' . $row['id_isian'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_isian'] . ' (' . $row['nama_kategori'] . ' - Rp' . $row['harga'] . ')</option>';
-                                    }
+                        for ($i = 1; $i <= 5; $i++) {
+                            echo '<select class="form-select mb-2" name="isian_box[]" id="isian' . $i . '"><option selected>Pilih isian box</option>';
+                            while ($row = $result->fetch_assoc()) {
+                                if (
+                                    ($i === 1 && $row['nama_kategori'] === 'Lauk Utama') ||
+                                    ($i === 2 && $row['nama_kategori'] === 'Lauk Pauk') ||
+                                    ($i === 3 && $row['nama_kategori'] === 'Lalapan') ||
+                                    ($i === 4 && $row['nama_kategori'] === 'Sambal') ||
+                                    ($i === 5 && $row['nama_kategori'] === 'Kerupuk')
+                                ) {
+                                    echo '<option value="' . $row['id_isian'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_isian'] . ' (' . $row['nama_kategori'] . ' - Rp' . $row['harga'] . ')</option>';
                                 }
-                                echo '</select>';
-                                $result->data_seek(0); // Reset pointer for the next iteration
                             }
-                            ?>
+                            echo '</select>';
+                            $result->data_seek(0); // Reset pointer for the next iteration
+                        }
+                        ?>
                         </div>
                         <div class="mb-3">
                             <label for="minuman" class="form-label">Minuman:</label>
                             <select class="form-select" name="minuman" id="minuman">
                                 <option selected>Pilih minuman</option>
                                 <?php
-                                $query = "SELECT * FROM minuman";
-                                $result = $conn->query($query);
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '<option value="' . $row['id_minuman'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_minuman'] . ' (Rp' . $row['harga'] . ')</option>';
-                                }
-                                ?>
+                            $query = "SELECT * FROM minuman";
+                            $result = $conn->query($query);
+                            while ($row = $result->fetch_assoc()) {
+                                echo '<option value="' . $row['id_minuman'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_minuman'] . ' (Rp' . $row['harga'] . ')</option>';
+                            }
+                            ?>
                             </select>
                         </div>
                         <div class="mb-3">
