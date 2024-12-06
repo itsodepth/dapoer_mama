@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="../../assets/style.css" />
+        <title>Metode Pembayaran</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
+                <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
+                        <span>Dapoer Mama</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse d-flex" id="navbarNav">
+                        <ul class="navbar-nav ms-auto py-auto align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Histori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pesan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../profile-screen/profile.html"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="mt-5">
+            <div class="container">
+                <!-- Back Button -->
+                <div class="container">
+                    <a href="checkout.html" class="btn-back ms-5" style="margin: 5rem 0 5rem 0">
+                        <span class="bi bi-arrow-left fs-4"></span>
+                    </a>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="container" style="margin-top: 6rem">
+                    <div class="payment-card border border-1">
+                        <h5 class="text-center mb-4">Pilih Metode Pembayaran</h5>
+                        <!-- E-Wallet -->
+                        <div>
+                            <p class="mb-2">E-Wallet</p>
+                            <div class="d-flex justify-content-between gap-3">
+                                <button class="btn-payment flex-fill me-2">DANA</button>
+                                <button class="btn-payment flex-fill me-2">OVO</button>
+                                <button class="btn-payment flex-fill">GoPay</button>
+                            </div>
+                        </div>
+
+                        <!-- QRIS -->
+                        <div class="mt-4">
+                            <p class="mb-2">QRIS</p>
+                            <button class="btn-payment w-100">QRIS</button>
+                        </div>
+
+                        <!-- Virtual Account -->
+                        <div class="mt-4">
+                            <p class="mb-2">Virtual Account</p>
+                            <div class="row g-3">
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">BCA</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">Mandiri</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">BSI</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">BNI</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">Danamon</button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn-payment w-100">SeaBank</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Button -->
+                        <div class="text-center mt-4">
+                            <button class="btn btn-confirm px-4 py-2">Konfirmasi Pesanan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+        <script>
+            // Active button state
+            const paymentButtons = document.querySelectorAll(".btn-payment");
+            paymentButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    paymentButtons.forEach((btn) => btn.classList.remove("active"));
+                    button.classList.add("active");
+                });
+            });
+        </script>
+    </body>
+</html>
