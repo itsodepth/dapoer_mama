@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous" />
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
         <title>Dapoer Mama</title>
     </head>
+
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
@@ -19,7 +27,8 @@
                         <img src="assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
                         <span>Dapoer Mama</span>
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse d-flex" id="navbarNav">
@@ -28,11 +37,18 @@
                                 <a class="nav-link active" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pesan-menu/pesan.html">Pesan</a>
+                                <a class="nav-link" href="pesan-menu/pesan.php">Pesan</a>
                                 <!-- data-bs-toggle="modal" data-bs-target="#loginModal" -->
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login/login.html"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
+                            <li class="nav-item dropdown">
+                                <a class="avatar" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle" style="font-size: 28px"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -41,8 +57,10 @@
         </header>
 
         <main class="mt-5">
-            <div class="p-5 mb-3 bg-image d-flex align-items-center" style="background-image: url('assets/images/food.jpg'); height: 500px; background-size: cover; position: relative">
-                <div class="mask d-flex align-items-center justify-content-start" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%">
+            <div class="p-5 mb-3 bg-image d-flex align-items-center"
+                style="background-image: url('assets/images/food.jpg'); height: 500px; background-size: cover; position: relative">
+                <div class="mask d-flex align-items-center justify-content-start"
+                    style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%">
                     <div class="text-start text-white ms-3 p-5">
                         <h2 class="mb-3">Judul Banner</h2>
                         <h4>Deskripsi singkat tentang gambar atau website.</h4>
@@ -56,7 +74,8 @@
                     <!-- Card 1 -->
                     <div class="col-3">
                         <div class="card h-100 mx-2">
-                            <img src="assets/images/menu1.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 1" />
+                            <img src="assets/images/menu1.jpg" class="card-img-top img-fluid h-100"
+                                alt="Menu Rekomendasi 1" />
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Bujang</h5>
                                 <p class="card-text mb-0">Rp12.000 per box</p>
@@ -68,7 +87,8 @@
                     <!-- Card 2 -->
                     <div class="col-3">
                         <div class="card h-100 mx-2">
-                            <img src="assets/images/menu2.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 2" />
+                            <img src="assets/images/menu2.jpg" class="card-img-top img-fluid h-100"
+                                alt="Menu Rekomendasi 2" />
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
                                 <p class="card-text mb-0">Rp10.000 per box</p>
@@ -79,7 +99,8 @@
                     <!-- Card 3 -->
                     <div class="col-3">
                         <div class="card h-100 mx-2">
-                            <img src="assets/images/menu3.jpg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 3" />
+                            <img src="assets/images/menu3.jpg" class="card-img-top img-fluid h-100"
+                                alt="Menu Rekomendasi 3" />
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
                                 <p class="card-text mb-0">Rp14.000 per box</p>
@@ -90,7 +111,8 @@
                     <!-- Card 4 -->
                     <div class="col-3">
                         <div class="card h-100 mx-2">
-                            <img src="assets/images/menu4.jpeg" class="card-img-top img-fluid h-100" alt="Menu Rekomendasi 4" />
+                            <img src="assets/images/menu4.jpeg" class="card-img-top img-fluid h-100"
+                                alt="Menu Rekomendasi 4" />
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
                                 <p class="card-text mb-0">Rp20.000 per box</p>
@@ -110,7 +132,8 @@
                             <img src="assets/images/paket1.jpeg" class="card-img-top" alt="Menu Rekomendasi 1" />
                             <div class="card-body">
                                 <h5 class="card-title text-center">Paket 1</h5>
-                                <p class="card-text text-center">Cocok untuk acara pengajian di pedesaan atau tempat lainnya</p>
+                                <p class="card-text text-center">Cocok untuk acara pengajian di pedesaan atau tempat
+                                    lainnya</p>
                                 <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
@@ -121,7 +144,8 @@
                             <img src="assets/images/paket2.jpeg" class="card-img-top" alt="Menu Rekomendasi 2" />
                             <div class="card-body">
                                 <h5 class="card-title text-center">Paket 2</h5>
-                                <p class="card-text text-center">Cocok untuk acara kantoran sebagai kudapan saat rapat</p>
+                                <p class="card-text text-center">Cocok untuk acara kantoran sebagai kudapan saat rapat
+                                </p>
                                 <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
@@ -132,7 +156,8 @@
                             <img src="assets/images/paket3.jpeg" class="card-img-top" alt="Menu Rekomendasi 3" />
                             <div class="card-body">
                                 <h5 class="card-title text-center">Paket 3</h5>
-                                <p class="card-text text-center">Paket ini cocok untuk acara berskala besar semacam pernikahan</p>
+                                <p class="card-text text-center">Paket ini cocok untuk acara berskala besar semacam
+                                    pernikahan</p>
                                 <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
@@ -140,9 +165,6 @@
                 </div>
             </div>
         </main>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
         <!-- Modal Bootstrap untuk peringatan login -->
         <!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -160,6 +182,12 @@
                 </div>
             </div>
         </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
     </body>
 
     <footer class="text-white py-5 mt-5" style="background-color: #b93f3f">
@@ -190,19 +218,23 @@
                     <h5 class="fw-bold">SOSIAL MEDIA</h5>
                     <p class="mb-1">
                         <i class="bi bi-instagram"></i>
-                        <a href="https://instagram.com/dapoermama" class="text-white text-decoration-none">@dapoermama</a>
+                        <a href="https://instagram.com/dapoermama"
+                            class="text-white text-decoration-none">@dapoermama</a>
                     </p>
                     <p class="mb-1">
                         <i class="bi bi-facebook"></i>
-                        <a href="https://facebook.com/Dapoermama_Official" class="text-white text-decoration-none">Dapoermama_Official</a>
+                        <a href="https://facebook.com/Dapoermama_Official"
+                            class="text-white text-decoration-none">Dapoermama_Official</a>
                     </p>
                     <p class="mb-1">
                         <i class="bi bi-tiktok"></i>
-                        <a href="https://tiktok.com/@dapoermama_official" class="text-white text-decoration-none">@dapoermama_official</a>
+                        <a href="https://tiktok.com/@dapoermama_official"
+                            class="text-white text-decoration-none">@dapoermama_official</a>
                     </p>
                     <p>
                         <i class="bi bi-youtube"></i>
-                        <a href="https://youtube.com/@dapoermama" class="text-white text-decoration-none">@dapoermama</a>
+                        <a href="https://youtube.com/@dapoermama"
+                            class="text-white text-decoration-none">@dapoermama</a>
                     </p>
                 </div>
 
@@ -231,4 +263,5 @@
             </div>
         </div>
     </footer>
+
 </html>
