@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="assets/style.css" />
         <title>Profil - Dapoer Mama</title>
     </head>
 
@@ -17,23 +20,28 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
                 <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
-                    <a class="navbar-brand">Dapoer Mama</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand d-flex align-items-center" href="../index.php">
+                        <img src="../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
+                        <span>Dapoer Mama</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse d-flex" id="navbarNav">
                         <ul class="navbar-nav ms-auto py-auto align-items-center">
                             <li class="nav-item">
-                                <a class="nav-link active" href="../index.html">Home</a>
+                                <a class="nav-link active" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Histori</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../pesan-menu/pesan.html">Pesan</a>
+                                <a class="nav-link" href="../pesan-menu/pesan.php">Pesan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="profil.html"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
+                                <a class="nav-link" href="profile-screen/profile.php"><i class="bi bi-person-circle"
+                                        style="font-size: 28px"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -77,6 +85,10 @@
                         <textarea class="form-control" id="alamatLengkap" rows="3" required></textarea>
                     </div>
                 </form>
+                <div class="d-grid">
+                    <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                        onclick="window.location.href='../index.php'">Submit</button>
+                </div>
             </div>
 
             <!-- Ubah Password -->
@@ -98,11 +110,16 @@
                         <input type="password" class="form-control" id="konfirmasiPassword" required />
                     </div>
                 </form>
+                <div class="d-grid">
+                    <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                        onclick="window.location.href='../index.php'">Submit</button>
+                </div>
             </div>
 
-            <!-- Submit Button -->
+            <!-- Button Log Out -->
             <div class="d-grid">
-                <button class="btn btn-danger w-100" style="background-color: #b93f3f" onclick="window.location.href='index.html'">Submit</button>
+                <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                    onclick="window.location.href='../index.php'">Log out</button>
             </div>
         </main>
 
@@ -135,19 +152,23 @@
                         <h5 class="fw-bold">SOSIAL MEDIA</h5>
                         <p class="mb-1">
                             <i class="bi bi-instagram"></i>
-                            <a href="https://instagram.com/dapoermama" class="text-white text-decoration-none">@dapoermama</a>
+                            <a href="https://instagram.com/dapoermama"
+                                class="text-white text-decoration-none">@dapoermama</a>
                         </p>
                         <p class="mb-1">
                             <i class="bi bi-facebook"></i>
-                            <a href="https://facebook.com/Dapoermama_Official" class="text-white text-decoration-none">Dapoermama_Official</a>
+                            <a href="https://facebook.com/Dapoermama_Official"
+                                class="text-white text-decoration-none">Dapoermama_Official</a>
                         </p>
                         <p class="mb-1">
                             <i class="bi bi-tiktok"></i>
-                            <a href="https://tiktok.com/@dapoermama_official" class="text-white text-decoration-none">@dapoermama_official</a>
+                            <a href="https://tiktok.com/@dapoermama_official"
+                                class="text-white text-decoration-none">@dapoermama_official</a>
                         </p>
                         <p>
                             <i class="bi bi-youtube"></i>
-                            <a href="https://youtube.com/@dapoermama" class="text-white text-decoration-none">@dapoermama</a>
+                            <a href="https://youtube.com/@dapoermama"
+                                class="text-white text-decoration-none">@dapoermama</a>
                         </p>
                     </div>
 
@@ -177,4 +198,5 @@
             </div>
         </footer>
     </body>
+
 </html>

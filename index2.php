@@ -33,11 +33,10 @@
                                 <a class="nav-link active" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal">Pesan</a>
+                                <a class="nav-link" href="pesan.php">Pesan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="login/login.php"><i class="bi bi-person-circle"
+                                <a class="nav-link" href="profile-screen/profile.php"><i class="bi bi-person-circle"
                                         style="font-size: 28px"></i></a>
                             </li>
                         </ul>
@@ -70,8 +69,7 @@
                                 <h5 class="card-title mb-2">Ayam Bakar Bujang</h5>
                                 <p class="card-text mb-0">Rp12.000 per box</p>
                                 <!-- Link stretched over the card -->
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page1.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -83,8 +81,7 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
                                 <p class="card-text mb-0">Rp10.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page2.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -96,8 +93,7 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
                                 <p class="card-text mb-0">Rp14.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -109,8 +105,7 @@
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
                                 <p class="card-text mb-0">Rp20.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page4.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -128,8 +123,7 @@
                                 <h5 class="card-title text-center">Paket 1</h5>
                                 <p class="card-text text-center">Cocok untuk acara pengajian di pedesaan atau tempat
                                     lainnya</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -141,8 +135,7 @@
                                 <h5 class="card-title text-center">Paket 2</h5>
                                 <p class="card-text text-center">Cocok untuk acara kantoran sebagai kudapan saat rapat
                                 </p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -154,8 +147,7 @@
                                 <h5 class="card-title text-center">Paket 3</h5>
                                 <p class="card-text text-center">Paket ini cocok untuk acara berskala besar semacam
                                     pernikahan</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -164,7 +156,7 @@
         </main>
 
         <!-- Modal Bootstrap untuk peringatan login -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -178,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
         </script>
