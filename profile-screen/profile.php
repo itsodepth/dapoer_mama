@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start(); // Menggunakan session untuk autentikasi
 
@@ -70,6 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $result = $conn->query("SELECT * FROM user WHERE id_user=$id_user");
 $user = $result->fetch_assoc();
 ?>
+=======
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +114,14 @@ $user = $result->fetch_assoc();
                             <li class="nav-item">
                                 <a class="nav-link" href="../pesan-menu/pesan.php">Pesan</a>
                             </li>
+<<<<<<< HEAD
                             <li><a href="../logout.php">Logout</a></li>
+=======
+                            <li class="nav-item">
+                                <a class="nav-link" href="profile-screen/profile.php"><i class="bi bi-person-circle"
+                                        style="font-size: 28px"></i></a>
+                            </li>
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
                         </ul>
                     </div>
                 </div>
@@ -119,6 +129,7 @@ $user = $result->fetch_assoc();
         </header>
 
         <!-- Main Content -->
+<<<<<<< HEAD
                 <div class="container" style="margin-top: 80px">
                 <h2 class="text-center my-4">Personal Info</h2>
 
@@ -177,6 +188,78 @@ $user = $result->fetch_assoc();
                         <button class="btn btn-danger" type="submit">Ubah Password</button>
                     </div>
                 </form>
+=======
+        <main class="container" style="margin-top: 80px">
+            <h2 class="text-center my-4">Personal Info</h2>
+            <!-- Personal Info -->
+            <div class="card p-4 mb-4" style="border: 2px solid #b93f3f; border-radius: 8px">
+                <div class="p-3 mb-3" style="background-color: #b93f3f; color: white; border-radius: 4px">
+                    <h4 class="mb-0">Ubah Password</h4>
+                </div>
+                <form>
+                    <div class="mb-3">
+                        <label for="namaLengkap" class="form-label">Nama Lengkap*</label>
+                        <input type="text" class="form-control" id="namaLengkap" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username*</label>
+                        <input type="text" class="form-control" id="username" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email*</label>
+                        <input type="email" class="form-control" id="email" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="noTelepon" class="form-label">No. Telepon*</label>
+                            <input type="tel" class="form-control" id="noTelepon" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="kodePos" class="form-label">Kode Pos*</label>
+                            <input type="text" class="form-control" id="kodePos" required />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamatLengkap" class="form-label">Alamat Lengkap*</label>
+                        <textarea class="form-control" id="alamatLengkap" rows="3" required></textarea>
+                    </div>
+                </form>
+                <div class="d-grid">
+                    <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                        onclick="window.location.href='../index.php'">Submit</button>
+                </div>
+            </div>
+
+            <!-- Ubah Password -->
+            <div class="card p-4 mb-4" style="border: 2px solid #b93f3f; border-radius: 8px">
+                <div class="p-3 mb-3" style="background-color: #b93f3f; color: white; border-radius: 4px">
+                    <h4 class="mb-0">Ubah Password</h4>
+                </div>
+                <form>
+                    <div class="mb-3">
+                        <label for="passwordLama" class="form-label">Password Lama*</label>
+                        <input type="password" class="form-control" id="passwordLama" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordBaru" class="form-label">Password Baru*</label>
+                        <input type="password" class="form-control" id="passwordBaru" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="konfirmasiPassword" class="form-label">Konfirmasi Password*</label>
+                        <input type="password" class="form-control" id="konfirmasiPassword" required />
+                    </div>
+                </form>
+                <div class="d-grid">
+                    <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                        onclick="window.location.href='../index.php'">Submit</button>
+                </div>
+            </div>
+
+            <!-- Button Log Out -->
+            <div class="d-grid">
+                <button class="btn btn-danger w-100" style="background-color: #b93f3f"
+                    onclick="window.location.href='../index.php'">Log out</button>
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
             </div>
         </main>
 

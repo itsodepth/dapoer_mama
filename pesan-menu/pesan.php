@@ -22,6 +22,7 @@ $id_user = $_SESSION['id_user'];
                 box-sizing: border-box;
             }
 
+<<<<<<< HEAD
             header {
                 position: fixed;
                 top: 0;
@@ -29,6 +30,23 @@ $id_user = $_SESSION['id_user'];
                 width: 100%;
                 z-index: 1000;
             }
+=======
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+        <title>Pilih Size Box</title>
+        <style>
+        body {
+            font-family: "Nunito", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
 
             main {
                 padding-top: 80px; /* Tambahkan padding agar tidak tumpang tindih dengan navbar */
@@ -88,6 +106,48 @@ $id_user = $_SESSION['id_user'];
             </nav>
         </header>
 
+<<<<<<< HEAD
+=======
+        .card-text {
+            color: #555;
+        }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
+                <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
+                    <a class="navbar-brand d-flex align-items-center" href="../index.php">
+                        <img src="../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
+                        <span>Dapoer Mama</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse d-flex" id="navbarNav">
+                        <ul class="navbar-nav ms-auto py-auto align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Histori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pesan.html">Pesan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../profile-screen/profile.html"><i class="bi bi-person-circle"
+                                        style="font-size: 28px"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
         <main class="container my-5">
             <h2 class="section-title">Pilih Size Box</h2>
             <div class="row text-center">
@@ -129,6 +189,7 @@ $id_user = $_SESSION['id_user'];
                 </div>
             </div>
 
+<<<<<<< HEAD
                 <section>
                     <h2 class="section-title">Menu Rekomendasi</h2>
                     <div class="row">
@@ -182,6 +243,64 @@ $id_user = $_SESSION['id_user'];
 
         </main>
 
+=======
+            <!-- Menu Rekomendasi Section -->
+            <section>
+                <h2 class="section-title">Menu Rekomendasi</h2>
+                <div class="row">
+                    <div class="col-3">
+                        <a href="rekomendasi1/rekomendasi1.html" style="text-decoration: none; color: inherit">
+                            <div class="card h-100 mx-2">
+                                <img src="../assets/images/menu1.jpg" class="card-img-top img-fluid h-100"
+                                    alt="Menu Rekomendasi 1" />
+                                <div class="card-body mb-0">
+                                    <h5 class="card-title mb-2">Ayam Bakar Madura</h5>
+                                    <p class="card-text mb-0">Rp12.000 per box</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="rekomendasi2/rekomendasi2.html" style="text-decoration: none; color: inherit">
+                            <div class="card h-100 mx-2">
+                                <img src="../assets/images/menu2.jpg" class="card-img-top img-fluid h-100"
+                                    alt="Menu Rekomendasi 2" />
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
+                                    <p class="card-text mb-0">Rp10.000 per box</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="rekomendasi3/rekomendasi3.html" style="text-decoration: none; color: inherit">
+                            <div class="card h-100 mx-2">
+                                <img src="../assets/images/menu3.jpg" class="card-img-top img-fluid h-100"
+                                    alt="Menu Rekomendasi 3" />
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
+                                    <p class="card-text mb-0">Rp14.000 per box</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="rekomendasi4/rekomendasi4.html" style="text-decoration: none; color: inherit">
+                            <div class="card h-100 mx-2">
+                                <img src="../assets/images/menu4.jpeg" class="card-img-top img-fluid h-100"
+                                    alt="Menu Rekomendasi 4" />
+                                <div class="card-body">
+                                    <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
+                                    <p class="card-text mb-0">Rp20.000 per box</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
@@ -213,6 +332,7 @@ $id_user = $_SESSION['id_user'];
                     <h5 class="fw-bold">SOSIAL MEDIA</h5>
                     <p class="mb-1">
                         <i class="bi bi-instagram"></i>
+<<<<<<< HEAD
                         <a href="https://instagram.com/dapoermama" class="text-white text-decoration-none">@dapoermama</a>
                     </p>
                     <p class="mb-1">
@@ -226,6 +346,25 @@ $id_user = $_SESSION['id_user'];
                     <p>
                         <i class="bi bi-youtube"></i>
                         <a href="https://youtube.com/@dapoermama" class="text-white text-decoration-none">@dapoermama</a>
+=======
+                        <a href="https://instagram.com/dapoermama"
+                            class="text-white text-decoration-none">@dapoermama</a>
+                    </p>
+                    <p class="mb-1">
+                        <i class="bi bi-facebook"></i>
+                        <a href="https://facebook.com/Dapoermama_Official"
+                            class="text-white text-decoration-none">Dapoermama_Official</a>
+                    </p>
+                    <p class="mb-1">
+                        <i class="bi bi-tiktok"></i>
+                        <a href="https://tiktok.com/@dapoermama_official"
+                            class="text-white text-decoration-none">@dapoermama_official</a>
+                    </p>
+                    <p>
+                        <i class="bi bi-youtube"></i>
+                        <a href="https://youtube.com/@dapoermama"
+                            class="text-white text-decoration-none">@dapoermama</a>
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
                     </p>
                 </div>
 
@@ -254,4 +393,9 @@ $id_user = $_SESSION['id_user'];
             </div>
         </div>
     </footer>
+<<<<<<< HEAD
 </html>
+=======
+
+</html>
+>>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6

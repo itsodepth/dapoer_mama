@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-// Periksa apakah pengguna sudah login
-$is_logged_in = isset($_SESSION['id_user']); 
-$id_user = $_SESSION['id_user'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,35 +33,12 @@ $id_user = $_SESSION['id_user'];
                                 <a class="nav-link active" href="index.php">Home</a>
                             </li>
                             <li class="nav-item">
-<<<<<<< HEAD
-                                <a class="nav-link" href="pesan-menu/pesan.php">Pesan</a>
+                                <a class="nav-link" href="pesan.php">Pesan</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="pesan-menu/history/history.php?id_user=<?php echo $id_user; ?>">History</a>
-=======
-                                <a class="nav-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal">Pesan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login/login.php"><i class="bi bi-person-circle"
+                                <a class="nav-link" href="profile-screen/profile.php"><i class="bi bi-person-circle"
                                         style="font-size: 28px"></i></a>
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
                             </li>
-                            <li class="nav-item">
-                                <?php if ($is_logged_in): ?>
-                                    <nav>
-                                    <div class="toggle"><span class="fa fa-bars"></span></div>
-                                        <ul class="menu">
-                                            <li><a href="profile-screen/profile.php?id_user=<?php echo $id_user; ?>">Profile</a></li>
-                                            <li><a href="logout.php">Logout</a></li>
-                                        </ul>
-                                    </nav>
-                                <?php else: ?>
-                                    <!-- Jika belum login -->
-                                    <a class="nav-link" href="login.php"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
-                                <?php endif; ?>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -89,50 +58,6 @@ $id_user = $_SESSION['id_user'];
             </div>
 
             <div class="container">
-<<<<<<< HEAD
-                    <h2 class="section-title">Menu Andalan Kami</h2>
-                    <div class="row">
-                        <?php
-                        // Koneksi ke database
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "catering";
-
-                        $konn = new mysqli($servername, $username, $password, $dbname);
-                        if ($konn->connect_error) {
-                            die("Koneksi gagal: " . $konn->connect_error);
-                        }
-
-                        // Ambil data dari tabel
-                        $sql = "SELECT * FROM box_an";
-                        $id_rek = $_GET['id_ad'] ?? 0;
-                        $result = $konn->query($sql);
-
-                        // Render elemen HTML untuk setiap menu
-                        while ($row = $result->fetch_assoc()): 
-                            // Konversi data BLOB menjadi format base64
-                            $gambar = !empty($row['gambar']) 
-                                ? 'data:image/jpeg;base64,' . base64_encode($row['gambar']) 
-                                : '../assets/images/default.jpg';
-                        ?>
-                            <div class="col-3">
-                                
-                                <a href="andalan/andalan.php?id_ad=<?php echo $row['id_ad']; ?>" style="text-decoration: none; color: inherit">
-                                    <div class="card h-100 mx-2">
-                                        <!-- Gambar -->
-                                        <img 
-                                            src="<?= $gambar; ?>" 
-                                            class="card-img-top img-fluid h-100" 
-                                            alt="<?= $row['nama_menu']; ?>" 
-                                        />
-                                        <div class="card-body mb-0">
-                                            <h5 class="card-title mb-2"><?= $row['nama_menu']; ?></h5>
-                                            <p class="card-text mb-0">Rp<?= number_format($row['harga'], 0, ',', '.'); ?> per box</p>
-                                        </div>
-                                    </div>
-                                </a>
-=======
                 <h2 class="text-center my-5">Menu Andalan Kami</h2>
                 <div class="row">
                     <!-- Card 1 -->
@@ -144,64 +69,10 @@ $id_user = $_SESSION['id_user'];
                                 <h5 class="card-title mb-2">Ayam Bakar Bujang</h5>
                                 <p class="card-text mb-0">Rp12.000 per box</p>
                                 <!-- Link stretched over the card -->
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+                                <a href="page1.html" class="stretched-link"></a>
                             </div>
-                        <?php endwhile; ?>
-                        <?php $konn->close(); ?>
+                        </div>
                     </div>
-<<<<<<< HEAD
-
-            <div class="container">
-                    <h2 class="section-title">Menu Rekomendasi</h2>
-                    <div class="row">
-                        <?php
-                        // Koneksi ke database
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "catering";
-
-                        $host = new mysqli($servername, $username, $password, $dbname);
-                        if ($host->connect_error) {
-                            die("Koneksi gagal: " . $host->connect_error);
-                        }
-
-                        // Ambil data dari tabel
-                        $sql = "SELECT * FROM box_rek";
-                        $id_rek = $_GET['id_rek'] ?? 0;
-                        $result = $host->query($sql);
-
-                        // Render elemen HTML untuk setiap menu
-                        while ($row = $result->fetch_assoc()): 
-                            // Konversi data BLOB menjadi format base64
-                            $gambar = !empty($row['gambar']) 
-                                ? 'data:image/jpeg;base64,' . base64_encode($row['gambar']) 
-                                : '../assets/images/default.jpg';
-                        ?>
-                            <div class="col-3">
-                                
-                                <a href="pesan-menu/rekomendasi/rekomendasi.php?id_rek=<?php echo $row['id_rek']; ?>" style="text-decoration: none; color: inherit">
-                                    <div class="card h-100 mx-2">
-                                        <!-- Gambar -->
-                                        <img 
-                                            src="<?= $gambar; ?>" 
-                                            class="card-img-top img-fluid h-100" 
-                                            alt="<?= $row['nama_menu']; ?>" 
-                                        />
-                                        <div class="card-body mb-0">
-                                            <h5 class="card-title mb-2"><?= $row['nama_menu']; ?></h5>
-                                            <p class="card-text mb-0">Rp<?= number_format($row['harga'], 0, ',', '.'); ?> per box</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endwhile; ?>
-                        <?php $host->close(); ?>
-                    </div>
-        </main>
-=======
                     <!-- Card 2 -->
                     <div class="col-3">
                         <div class="card h-100 mx-2">
@@ -210,8 +81,7 @@ $id_user = $_SESSION['id_user'];
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
                                 <p class="card-text mb-0">Rp10.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page2.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -223,8 +93,7 @@ $id_user = $_SESSION['id_user'];
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
                                 <p class="card-text mb-0">Rp14.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -236,8 +105,7 @@ $id_user = $_SESSION['id_user'];
                             <div class="card-body">
                                 <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
                                 <p class="card-text mb-0">Rp20.000 per box</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page4.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -255,8 +123,7 @@ $id_user = $_SESSION['id_user'];
                                 <h5 class="card-title text-center">Paket 1</h5>
                                 <p class="card-text text-center">Cocok untuk acara pengajian di pedesaan atau tempat
                                     lainnya</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -268,8 +135,7 @@ $id_user = $_SESSION['id_user'];
                                 <h5 class="card-title text-center">Paket 2</h5>
                                 <p class="card-text text-center">Cocok untuk acara kantoran sebagai kudapan saat rapat
                                 </p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -281,8 +147,7 @@ $id_user = $_SESSION['id_user'];
                                 <h5 class="card-title text-center">Paket 3</h5>
                                 <p class="card-text text-center">Paket ini cocok untuk acara berskala besar semacam
                                     pernikahan</p>
-                                <a class="stretched-link" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"></a>
+                                <a href="page3.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -291,7 +156,7 @@ $id_user = $_SESSION['id_user'];
         </main>
 
         <!-- Modal Bootstrap untuk peringatan login -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -305,8 +170,7 @@ $id_user = $_SESSION['id_user'];
                     </div>
                 </div>
             </div>
-        </div>
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+        </div> -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
         </script>
