@@ -91,8 +91,8 @@
     ?>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="#">
+            <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
+                <a class="navbar-brand d-flex align-items-center" href="../../index.php">
                     <img src="../../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
                     <span>Dapoer Mama</span>
                 </a>
@@ -103,7 +103,7 @@
                 <div class="collapse navbar-collapse d-flex" id="navbarNav">
                     <ul class="navbar-nav ms-auto py-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../../index.html">Home</a>
+                            <a class="nav-link active" href="../../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Histori</a>

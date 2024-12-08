@@ -2,7 +2,11 @@
 session_start();
 
 // Periksa apakah pengguna sudah login
+<<<<<<< HEAD
+$is_logged_in = isset($_SESSION['id_user']);
+=======
 $is_logged_in = isset($_SESSION['id_user']); 
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 $id_user = $_SESSION['id_user'];
 ?>
 <!DOCTYPE html>
@@ -23,6 +27,8 @@ $id_user = $_SESSION['id_user'];
             }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             header {
                 position: fixed;
                 top: 0;
@@ -31,6 +37,7 @@ $id_user = $_SESSION['id_user'];
                 z-index: 1000;
             }
 =======
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,6 +59,8 @@ $id_user = $_SESSION['id_user'];
                 padding-top: 80px; /* Tambahkan padding agar tidak tumpang tindih dengan navbar */
             }
 
+<<<<<<< HEAD
+=======
             .section-title {
                 font-family: "Nunito", sans-serif;
                 font-weight: bold;
@@ -59,6 +68,7 @@ $id_user = $_SESSION['id_user'];
                 text-align: center;
                 margin-bottom: 30px;
             }
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
             .card {
                 border: 2px solid #ddd; /* Tambahkan properti ini */
@@ -132,6 +142,18 @@ $id_user = $_SESSION['id_user'];
                                 <a class="nav-link active" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
+                                <a class="nav-link"
+                                    href="history/history.php?id_user=<?php echo $id_user; ?>">Histori</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pesan.php">Pesan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="../profile-screen/profile.php?id_user=<?php echo $id_user; ?>"><i
+                                        class="bi bi-person-circle" style="font-size: 28px"></i></a>
+=======
                                 <a class="nav-link" href="#">Histori</a>
                             </li>
                             <li class="nav-item">
@@ -140,6 +162,7 @@ $id_user = $_SESSION['id_user'];
                             <li class="nav-item">
                                 <a class="nav-link" href="../profile-screen/profile.html"><i class="bi bi-person-circle"
                                         style="font-size: 28px"></i></a>
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                             </li>
                         </ul>
                     </div>
@@ -147,8 +170,12 @@ $id_user = $_SESSION['id_user'];
             </nav>
         </header>
 
+<<<<<<< HEAD
+        <main class="container pt-5">
+=======
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
         <main class="container my-5">
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
             <h2 class="section-title">Pilih Size Box</h2>
             <div class="row text-center">
                 <!-- Small Box -->
@@ -189,6 +216,55 @@ $id_user = $_SESSION['id_user'];
                 </div>
             </div>
 
+<<<<<<< HEAD
+            <section>
+                <h2 class="section-title">Menu Rekomendasi</h2>
+                <div class="row">
+                    <?php
+                // Koneksi ke database
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "catering";
+
+                $host = new mysqli($servername, $username, $password, $dbname);
+                if ($host->connect_error) {
+                    die("Koneksi gagal: " . $host->connect_error);
+                }
+
+                // Ambil data dari tabel
+                $sql = "SELECT * FROM box_rek";
+                $id_rek = $_GET['id_rek'] ?? 0;
+                $result = $host->query($sql);
+
+                // Render elemen HTML untuk setiap menu
+                while ($row = $result->fetch_assoc()):
+                    // Konversi data BLOB menjadi format base64
+                    $gambar = !empty($row['gambar'])
+                        ? 'data:image/jpeg;base64,' . base64_encode($row['gambar'])
+                        : '../assets/images/default.jpg';
+                ?>
+                    <div class="col-3">
+
+                        <a href="rekomendasi/rekomendasi.php?id_rek=<?php echo $row['id_rek']; ?>"
+                            style="text-decoration: none; color: inherit">
+                            <div class="card h-100 mx-2">
+                                <!-- Gambar -->
+                                <img src="<?= $gambar; ?>" class="card-img-top img-fluid h-100"
+                                    alt="<?= $row['nama_menu']; ?>" />
+                                <div class="card-body mb-0">
+                                    <h5 class="card-title mb-2"><?= $row['nama_menu']; ?></h5>
+                                    <p class="card-text mb-0">Rp<?= number_format($row['harga'], 0, ',', '.'); ?> per
+                                        box</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <?php endwhile; ?>
+                    <?php $host->close(); ?>
+                </div>
+            </section>
+=======
 <<<<<<< HEAD
                 <section>
                     <h2 class="section-title">Menu Rekomendasi</h2>
@@ -238,11 +314,14 @@ $id_user = $_SESSION['id_user'];
                         <?php $host->close(); ?>
                     </div>
                 </section>
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
 
 
         </main>
 
+<<<<<<< HEAD
+=======
 =======
             <!-- Menu Rekomendasi Section -->
             <section>
@@ -301,6 +380,7 @@ $id_user = $_SESSION['id_user'];
         </main>
 
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
@@ -333,6 +413,8 @@ $id_user = $_SESSION['id_user'];
                     <p class="mb-1">
                         <i class="bi bi-instagram"></i>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                         <a href="https://instagram.com/dapoermama" class="text-white text-decoration-none">@dapoermama</a>
                     </p>
                     <p class="mb-1">
@@ -347,6 +429,7 @@ $id_user = $_SESSION['id_user'];
                         <i class="bi bi-youtube"></i>
                         <a href="https://youtube.com/@dapoermama" class="text-white text-decoration-none">@dapoermama</a>
 =======
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                         <a href="https://instagram.com/dapoermama"
                             class="text-white text-decoration-none">@dapoermama</a>
                     </p>
@@ -364,7 +447,10 @@ $id_user = $_SESSION['id_user'];
                         <i class="bi bi-youtube"></i>
                         <a href="https://youtube.com/@dapoermama"
                             class="text-white text-decoration-none">@dapoermama</a>
+<<<<<<< HEAD
+=======
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                     </p>
                 </div>
 
@@ -394,8 +480,11 @@ $id_user = $_SESSION['id_user'];
         </div>
     </footer>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 </html>
 =======
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
 </html>
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6

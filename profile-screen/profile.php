@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 <?php
 session_start(); // Menggunakan session untuk autentikasi
 
@@ -71,8 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $result = $conn->query("SELECT * FROM user WHERE id_user=$id_user");
 $user = $result->fetch_assoc();
 ?>
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,11 +123,15 @@ $user = $result->fetch_assoc();
 <<<<<<< HEAD
                             <li><a href="../logout.php">Logout</a></li>
 =======
+<<<<<<< HEAD
+                            <li><a href="../logout.php">Logout</a></li>
+=======
                             <li class="nav-item">
                                 <a class="nav-link" href="profile-screen/profile.php"><i class="bi bi-person-circle"
                                         style="font-size: 28px"></i></a>
                             </li>
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                         </ul>
                     </div>
                 </div>
@@ -130,6 +140,9 @@ $user = $result->fetch_assoc();
 
         <!-- Main Content -->
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                 <div class="container" style="margin-top: 80px">
                 <h2 class="text-center my-4">Personal Info</h2>
 
@@ -188,6 +201,8 @@ $user = $result->fetch_assoc();
                         <button class="btn btn-danger" type="submit">Ubah Password</button>
                     </div>
                 </form>
+<<<<<<< HEAD
+=======
 =======
         <main class="container" style="margin-top: 80px">
             <h2 class="text-center my-4">Personal Info</h2>
@@ -260,6 +275,7 @@ $user = $result->fetch_assoc();
                 <button class="btn btn-danger w-100" style="background-color: #b93f3f"
                     onclick="window.location.href='../index.php'">Log out</button>
 >>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
+>>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
             </div>
         </main>
 
