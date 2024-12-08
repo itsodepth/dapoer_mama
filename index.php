@@ -2,11 +2,7 @@
 session_start();
 
 // Periksa apakah pengguna sudah login
-<<<<<<< HEAD
-$is_logged_in = isset($_SESSION['id_user']);
-=======
 $is_logged_in = isset($_SESSION['id_user']); 
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 $id_user = $_SESSION['id_user'];
 ?>
 
