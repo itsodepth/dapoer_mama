@@ -1,37 +1,45 @@
 <?php
 session_start(); // Menggunakan session untuk autentikasi
 
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "catering";
 
-include "koneksi.php"; // Memasukkan konfigurasi database
+$conn = new mysqli($host, $user, $pass, $db);
 
-// Ambil ID user dari session atau parameter GET/POST
-$id_user = $_SESSION['id_user'];
+// Cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 
-if (isset($_SESSION['id_user']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_user = $_SESSION['id_user'];
+// Cek apakah request adalah POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Ambil input dari reset_password.php
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
+    $email = $_SESSION['email']; // Ambil email dari session
 
-    // Validasi kesesuaian password baru dan konfirmasi
-    if ($new_password !== $confirm_password) {
-        echo "Passwords do not match. Please try again.";
-        exit;
+    // Verifikasi apakah new password dan confirm new password sama
+    if ($new_password === $confirm_password) {
+        // Hash password baru
+        $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
+
+        // Update password di database
+        $stmt = $conn->prepare("UPDATE user SET password = ? WHERE email = ?");
+        $stmt->bind_param('ss', $hashed_password, $email);
+        if ($stmt->execute()) {
+            echo "Password berhasil diperbarui.";
+        } else {
+            echo "Gagal memperbarui password. Silakan coba lagi.";
+        }
+        $stmt->close();
+    } else {
+        echo "Password dan konfirmasi password tidak cocok.";
     }
-
-    // Hash password baru
-    $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
-
-    // Update password di database
-    $update = $host->prepare( "UPDATE user SET password=? WHERE id_user=?");
-    $update->bind_param('si', $hashed_password, $id_user);
-    $update->execute();
-
-    // Hapus session dan konfirmasi berhasil
-    session_unset();
-    session_destroy();
-    echo "Password has been successfully reset.";
 } else {
-    // Jika sesi id_user tidak ditemukan
     echo "Unauthorized access.";
 }
+
+$conn->close();
 ?>

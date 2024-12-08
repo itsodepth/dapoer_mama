@@ -1,12 +1,7 @@
 <?php
 session_start();
 // Periksa apakah id_user tersedia di session
-if (!isset($_SESSION['id_user'])) {
-    header('Location: verify_code_process.php'); // Arahkan kembali ke halaman verifikasi
-    exit;
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
