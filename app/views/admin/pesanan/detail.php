@@ -18,7 +18,7 @@
                 </tr>
                 <tr>
                     <td>Waktu Estimasi</td>
-                    <td>: <?=$data['pesanan']['waktu']; ?></td>
+                    <td>: <?= $data['pesanan']['waktu']; ?></td>
                 </tr>
                 <tr>
                     <td>Alamat Pengiriman</td>
@@ -42,9 +42,29 @@
                 </tr>
                 <tr>
                     <td>Status Pesanan</td>
-                    <td>: <?= $data['pesanan']['status']; ?></td>
+                    <td>: <?= $data['pesanan']['status_pes']; ?></td> <!-- Pastikan ini menggunakan 'status_pes' -->
                 </tr>
             </table>
+
+            <!-- Form untuk Update Status Pesanan -->
+            <form action="<?= BASEURL; ?>/pesanan/updateStatus" method="POST" class="my-3">
+                <input type="hidden" name="id_pes" value="<?= $data['pesanan']['id_pes']; ?>">
+                <div class="form-group d-flex align-items-center">
+                    <label for="status" class="mr-2">Update Status:</label>
+                    <select name="status" id="status" class="form-control" style="max-width: 200px; margin-right: 10px;">
+                        <?php 
+                        // Array status yang tersedia
+                        $statuses = ['Pending', 'Diproses', 'Dikirim', 'Selesai', 'Dibatalkan'];
+                        foreach ($statuses as $status) : ?>
+                            <option value="<?= $status; ?>" <?= $data['pesanan']['status_pes'] == $status ? 'selected' : ''; ?>>
+                                <?= $status; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+
             <h5>Informasi Pembayaran</h5>
             <table class="table" style="width: 40%;">
                 <tr>
@@ -60,24 +80,6 @@
                     <td>: <?= isset($data['status']) ? $data['status'] : 'belum_lunas'; ?></td>
                 </tr>
             </table>
-            <!-- Form untuk Update Status Pesanan -->
-            <form action="<?= BASEURL; ?>/pesanan/updateStatus" method="POST" class="my-3">
-                <input type="hidden" name="id_pes" value="<?= $data['pesanan']['id_pes']; ?>">
-                <div class="form-group d-flex align-items-center">
-                    <label for="status" class="mr-2">Update Status:</label>
-                    <select name="status" id="status" class="form-control" style="max-width: 200px; margin-right: 10px;">
-                        <?php 
-                        // Array status yang tersedia
-                        $statuses = ['Pending', 'Diproses', 'Selesai', 'Dibatalkan'];
-                        foreach ($statuses as $status) : ?>
-                            <option value="<?= $status; ?>" <?= $data['pesanan']['status'] == $status ? 'selected' : ''; ?>>
-                                <?= $status; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Update Status</button>
-                </div>
-            </form>
 
             <h5>Detail Menu Pesanan</h5>
             <table class="table table-bordered">

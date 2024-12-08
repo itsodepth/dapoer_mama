@@ -18,7 +18,7 @@ class Pesanan_model {
                     pesanan.cara_bayar,
                     pesanan.jumlah,
                     pesanan.totalharga,
-                    pesanan.status
+                    pesanan.status_pes
                         FROM ' . $this->table . ' INNER JOIN user on pesanan.id_user = user.id_user ORDER BY waktu DESC');
         return $this->db->resultSet();
     }
@@ -33,11 +33,11 @@ class Pesanan_model {
                     pesanan.cara_bayar,
                     pesanan.jumlah,
                     pesanan.totalharga,
-                    pesanan.status 
+                    pesanan.status_pes 
                         FROM ' . $this->table . ' INNER JOIN user on pesanan.id_user = user.id_user WHERE id_pes = :id_pes');
         $this->db->bind('id_pes', $id_pes);
         $pesanan = $this->db->single();
-    
+        
         // Ambil data pembayaran
         $pembayaran = $this->getPembayaranById($id_pes);
         
@@ -73,11 +73,11 @@ class Pesanan_model {
 
     public function updateStatusPesanan($data) {
         $id_pes = $data['id_pes'];
-        $status = $data['status'];
+        $status_pes = $data['status']; // Pastikan ini diambil dari form
     
-        $query = "UPDATE pesanan SET status = :status WHERE id_pes = :id_pes";
+        $query = "UPDATE pesanan SET status_pes = :status_pes WHERE id_pes = :id_pes";
         $this->db->query($query);
-        $this->db->bind('status', $status);
+        $this->db->bind('status_pes', $status_pes);
         $this->db->bind('id_pes', $id_pes);
     
         $this->db->execute();

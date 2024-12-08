@@ -45,7 +45,7 @@
                         <td><?= $pesanan['tlp']; ?></td>
                         <td><?= $pesanan['cara_bayar']; ?></td>
                         <td><?= $pesanan['jumlah']; ?></td>
-                        <td><?= $pesanan['status']; ?></td>
+                        <td><?= $pesanan['status_pes']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/pesanan/detail/<?= $pesanan['id_pes']; ?>" class="btn btn-primary btn-icon-split" style="width: 60px;">Detail</a>
                         </td>
