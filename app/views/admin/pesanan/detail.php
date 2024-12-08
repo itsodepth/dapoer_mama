@@ -10,6 +10,9 @@
             <h6 class="m-0 font-weight-bold text-primary">Detail Pesanan</h6>
         </div>
         <div class="card-body">
+            <!-- Tombol Kembali -->
+            <a href="<?= BASEURL; ?>/pesanan" class="btn btn-secondary mb-3">Kembali</a>
+
             <h5>Informasi Pemesan</h5>
             <table class="table" style="width: 40%;">
                 <tr>
@@ -100,9 +103,6 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <!-- Tombol Kembali -->
-            <a href="<?= BASEURL; ?>/pesanan" class="btn btn-secondary">Kembali</a>
-
         </div>
     </div>
 
