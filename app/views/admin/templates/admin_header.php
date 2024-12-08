@@ -79,9 +79,9 @@
                         <div class="collapse-divider"></div>
                         <a class="collapse-item" href="<?= BASEURL; ?>/diskon">Daftar Diskon</a>
                         <div class="collapse-divider"></div>
-                        <a class="collapse-item" href="<?= BASEURL; ?>/pesanan">Daftar Pesanan</a>
-                        <div class="collapse-divider"></div>
                         <a class="collapse-item" href="<?= BASEURL; ?>/box">Daftar Size Box</a>
+                        <div class="collapse-divider"></div>
+                        <a class="collapse-item" href="<?= BASEURL; ?>/pesanan">Daftar Pesanan</a>
                     </div>
                 </div>
             </li>

@@ -4,13 +4,6 @@
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Tabel Pesanan</h1>
 
-    <div class="row mb-3">
-        <div class="col-lg-6">
-            <a href="<?= BASEURL; ?>/pesanan/form" class="btn btn-primary my-3">Tambah Data Pesanan</a>
-        </div>
-    </div>
-
-
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -27,7 +20,6 @@
                         <th>No. Telepon</th>
                         <th>Cara Bayar</th>
                         <th>Jumlah</th>
-                        <th>Total Harga</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -40,7 +32,6 @@
                         <th>No. Telepon</th>
                         <th>Cara Bayar</th>
                         <th>Jumlah</th>
-                        <th>Total Harga</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -54,7 +45,6 @@
                         <td><?= $pesanan['tlp']; ?></td>
                         <td><?= $pesanan['cara_bayar']; ?></td>
                         <td><?= $pesanan['jumlah']; ?></td>
-                        <td><?= number_format($pesanan['totalharga'], 0, ',', '.'); ?></td>
                         <td><?= $pesanan['status']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/pesanan/detail/<?= $pesanan['id_pes']; ?>" class="btn btn-primary btn-icon-split" style="width: 60px;">Detail</a>
