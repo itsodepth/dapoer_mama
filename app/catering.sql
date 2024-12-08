@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2024 at 01:54 AM
+-- Generation Time: Dec 08, 2024 at 01:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,9 +86,17 @@ INSERT INTO `box_rek` (`id_rek`, `nama_menu`, `isi_1`, `isi_2`, `isi_3`, `isi_4`
 --
 
 CREATE TABLE `detail_pesanan` (
-  `id_pes` int(10) NOT NULL,
+  `id_pes` int(11) NOT NULL,
   `id_menu` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detail_pesanan`
+--
+
+INSERT INTO `detail_pesanan` (`id_pes`, `id_menu`) VALUES
+(1, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -169,10 +177,19 @@ INSERT INTO `menu` (`id_menu`, `nama`, `harga`, `deskripsi`, `gambar`, `tipe`) V
 CREATE TABLE `pembayaran` (
   `id_pem` int(10) NOT NULL,
   `id_pes` int(10) NOT NULL,
-  `id_diskon` int(10) NOT NULL,
+  `id_diskon` int(10) DEFAULT NULL,
+  `total_bayar` float NOT NULL,
   `waktu_bayar` datetime NOT NULL,
-  `status` enum('belum_lunas','lunas') NOT NULL
+  `status` enum('belum lunas','lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pem`, `id_pes`, `id_diskon`, `total_bayar`, `waktu_bayar`, `status`) VALUES
+(3, 1, NULL, 2000000, '2024-12-08 12:08:51', 'lunas'),
+(5, 1, NULL, 1000000, '2024-11-01 18:43:50', 'lunas');
 
 -- --------------------------------------------------------
 
@@ -182,9 +199,9 @@ CREATE TABLE `pembayaran` (
 
 CREATE TABLE `pesanan` (
   `id_pes` int(10) NOT NULL,
-  `id_pelanggan` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
   `waktu` date NOT NULL,
-  `status` enum('selesai','terkirim','sedang dibuat') NOT NULL,
+  `status_pes` enum('pending','diproses','dikirim','selesai','dibatalkan') NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `tlp` varchar(15) NOT NULL,
   `cara_bayar` enum('dp','lunas') NOT NULL,
@@ -192,6 +209,13 @@ CREATE TABLE `pesanan` (
   `totalharga` float NOT NULL,
   `id_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_pes`, `id_user`, `waktu`, `status_pes`, `alamat`, `tlp`, `cara_bayar`, `jumlah`, `totalharga`, `id_size`) VALUES
+(1, 8, '2024-12-31', 'dikirim', 'alamat', '081234567890', 'lunas', 100, 1000000, 1);
 
 -- --------------------------------------------------------
 
@@ -204,6 +228,13 @@ CREATE TABLE `size_box` (
   `id_size` int(11) NOT NULL,
   `capacity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `size_box`
+--
+
+INSERT INTO `size_box` (`size`, `id_size`, `capacity`) VALUES
+('medium', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -251,8 +282,8 @@ ALTER TABLE `box_rek`
 -- Indexes for table `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
-  ADD PRIMARY KEY (`id_pes`),
-  ADD KEY `id_menu` (`id_menu`);
+  ADD KEY `id_menu` (`id_menu`),
+  ADD KEY `id_pes` (`id_pes`);
 
 --
 -- Indexes for table `diskon`
@@ -294,7 +325,7 @@ ALTER TABLE `pembayaran`
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id_pes`),
   ADD UNIQUE KEY `id_size` (`id_size`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`);
+  ADD KEY `id_pelanggan` (`id_user`);
 
 --
 -- Indexes for table `size_box`
@@ -325,12 +356,6 @@ ALTER TABLE `box_rek`
   MODIFY `id_rek` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `detail_pesanan`
---
-ALTER TABLE `detail_pesanan`
-  MODIFY `id_pes` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `diskon`
 --
 ALTER TABLE `diskon`
@@ -358,19 +383,19 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pem` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pem` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pes` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pes` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `size_box`
 --
 ALTER TABLE `size_box`
-  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -386,7 +411,8 @@ ALTER TABLE `user`
 -- Constraints for table `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
-  ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`);
+  ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`),
+  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`id_pes`) REFERENCES `pesanan` (`id_pes`);
 
 --
 -- Constraints for table `history`
@@ -411,7 +437,8 @@ ALTER TABLE `pembayaran`
 -- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_size`) REFERENCES `size_box` (`id_size`);
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_size`) REFERENCES `size_box` (`id_size`),
+  ADD CONSTRAINT `pesanan_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
