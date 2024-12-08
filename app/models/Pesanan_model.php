@@ -85,16 +85,9 @@ class Pesanan_model {
     }
 
     public function getPembayaranById($id_pes) {
-    $this->db->query('SELECT 
-                pembayaran.id_diskon,
-                pembayaran.total_bayar,
-                pembayaran.status 
-                    FROM pembayaran WHERE id_pes = :id_pes');
-    $this->db->bind('id_pes', $id_pes);
-    $pembayaran = $this->db->single();
-    
-    // Jika tidak ada data pembayaran, kembalikan array dengan nilai default
-    return $pembayaran ? $pembayaran : ['id_diskon' => null, 'total_bayar' => 0, 'status' => 'belum_lunas'];
+        $this->db->query('SELECT * FROM pembayaran WHERE id_pes = :id_pes');
+        $this->db->bind('id_pes', $id_pes);
+        return $this->db->single(); // Pastikan ini mengembalikan satu baris data
     }
 }
 ?>

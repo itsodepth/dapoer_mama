@@ -69,15 +69,15 @@
             <table class="table" style="width: 40%;">
                 <tr>
                     <td>ID Diskon</td>
-                    <td>: <?= isset($data['id_diskon']) ? $data['id_diskon'] : 'Tidak ada diskon'; ?></td>
+                    <td>: <?= isset($data['pembayaran']['id_diskon']) ? $data['pembayaran']['id_diskon'] : 'Tidak ada diskon'; ?></td>
                 </tr>
                 <tr>
                     <td>Total Bayar</td>
-                    <td>: <?= number_format(isset($data['total_bayar']) ? $data['total_bayar'] : 0, 0, ',', '.'); ?></td>
+                    <td>: <?= number_format(isset($data['pembayaran']['total_bayar']) ? $data['pembayaran']['total_bayar'] : 0, 0, ',', '.'); ?></td>
                 </tr>
                 <tr>
                     <td>Status Pembayaran</td>
-                    <td>: <?= isset($data['status']) ? $data['status'] : 'belum_lunas'; ?></td>
+                    <td>: <?= isset($data['pembayaran']['status']) ? $data['pembayaran']['status'] : 'belum_lunas'; ?></td>
                 </tr>
             </table>
 

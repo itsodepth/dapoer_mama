@@ -11,7 +11,9 @@ class Pesanan extends Controller {
     public function detail($id_pes = null) {
         $data['judul'] = 'Detail Pesanan';
         $data['pesanan'] = $this->model('Pesanan_model')->getPesananById($id_pes);
-        $data['detail_pesanan'] = $this->model('Pesanan_model')->getDetailPesananById($id_pes); // Ambil detail pesanan
+        $data['detail_pesanan'] = $this->model('Pesanan_model')->getDetailPesananById($id_pes); 
+        $data['pembayaran'] = $this->model('Pesanan_model')->getPembayaranById($id_pes);
+
         $this->view('templates/admin_header', $data);
         $this->view('pesanan/detail', $data);
         $this->view('templates/admin_footer');
