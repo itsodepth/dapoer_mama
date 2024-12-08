@@ -6,6 +6,9 @@ class AdminDashboard extends Controller {
         $data['hasil'] = $this->model('AdminDashboard_model')->getAllPenghasilan();
         $data['hasil_bulan'] = $this->model('AdminDashboard_model')->getAllPenghasilanByMonth();
         
+        // Ambil data penghasilan per bulan dalam setahun
+        $data['penghasilan_per_bulan'] = $this->model('AdminDashboard_model')->getPenghasilanPerBulan();
+
         $this->view('templates/admin_header', $data);
         $this->view('dashboard', $data);
         $this->view('templates/admin_footer');
