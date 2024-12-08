@@ -1,5 +1,4 @@
 <?php
-
 class Database {
     private $host = DB_HOST;
     private $user = DB_USER;
@@ -8,6 +7,7 @@ class Database {
 
     private $dbh;
     private $stmt;
+    private $lastQuery; // Menyimpan query terakhir
 
     public function __construct() {
         // Database Source Name (DSN)
@@ -26,7 +26,12 @@ class Database {
     }
 
     public function query($query) {
+        $this->lastQuery = $query; // Simpan query terakhir
         $this->stmt = $this->dbh->prepare($query);
+    }
+
+    public function getLastQuery() {
+        return $this->lastQuery; // Kembalikan query terakhir
     }
 
     public function bind($param, $value, $type = null) {
@@ -64,6 +69,11 @@ class Database {
     public function single() {
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function object() {
+        $this->execute();
+        return $this->stmt->fetch(PDO::FETCH_OBJ);
     }
 
     public function rowCount() {
