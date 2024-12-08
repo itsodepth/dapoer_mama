@@ -45,7 +45,21 @@
                     <td>: <?= $data['pesanan']['status']; ?></td>
                 </tr>
             </table>
-
+            <h5>Informasi Pembayaran</h5>
+            <table class="table" style="width: 40%;">
+                <tr>
+                    <td>ID Diskon</td>
+                    <td>: <?= isset($data['id_diskon']) ? $data['id_diskon'] : 'Tidak ada diskon'; ?></td>
+                </tr>
+                <tr>
+                    <td>Total Bayar</td>
+                    <td>: <?= number_format(isset($data['total_bayar']) ? $data['total_bayar'] : 0, 0, ',', '.'); ?></td>
+                </tr>
+                <tr>
+                    <td>Status Pembayaran</td>
+                    <td>: <?= isset($data['status']) ? $data['status'] : 'belum_lunas'; ?></td>
+                </tr>
+            </table>
             <!-- Form untuk Update Status Pesanan -->
             <form action="<?= BASEURL; ?>/pesanan/updateStatus" method="POST" class="my-3">
                 <input type="hidden" name="id_pes" value="<?= $data['pesanan']['id_pes']; ?>">

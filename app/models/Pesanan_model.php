@@ -36,7 +36,13 @@ class Pesanan_model {
                     pesanan.status 
                         FROM ' . $this->table . ' INNER JOIN user on pesanan.id_user = user.id_user WHERE id_pes = :id_pes');
         $this->db->bind('id_pes', $id_pes);
-        return $this->db->single();
+        $pesanan = $this->db->single();
+    
+        // Ambil data pembayaran
+        $pembayaran = $this->getPembayaranById($id_pes);
+        
+        // Gabungkan data pesanan dan pembayaran
+        return array_merge($pesanan, $pembayaran);
     }
 
     public function getDetailPesananById($id_pes) {
@@ -76,6 +82,19 @@ class Pesanan_model {
     
         $this->db->execute();
         return $this->db->rowCount();
+    }
+
+    public function getPembayaranById($id_pes) {
+    $this->db->query('SELECT 
+                pembayaran.id_diskon,
+                pembayaran.total_bayar,
+                pembayaran.status 
+                    FROM pembayaran WHERE id_pes = :id_pes');
+    $this->db->bind('id_pes', $id_pes);
+    $pembayaran = $this->db->single();
+    
+    // Jika tidak ada data pembayaran, kembalikan array dengan nilai default
+    return $pembayaran ? $pembayaran : ['id_diskon' => null, 'total_bayar' => 0, 'status' => 'belum_lunas'];
     }
 }
 ?>
