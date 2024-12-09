@@ -40,4 +40,16 @@ class AdminDashboard_model {
         
         return $result;
     }    
+
+    public function getPenghasilanTahunIni() {
+        $this->db->query('
+            SELECT SUM(total_bayar) AS total_penghasilan_tahun_ini
+            FROM pembayaran
+            WHERE YEAR(waktu_bayar) = YEAR(CURRENT_DATE)
+        ');
+        $result = $this->db->single(); // Mengambil hasil sebagai array asosiatif
+        
+        // Periksa apakah hasilnya null dan set default 0 jika null
+        return $result ? $result : ['total_penghasilan_tahun_ini' => 0];
+    }
 }
