@@ -23,7 +23,6 @@
                     <tr>
                         <th>Ukuran</th>
                         <th>Kapasitas</th>
-                        <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -31,7 +30,6 @@
                     <tr>
                         <th>Ukuran</th>
                         <th>Kapasitas</th>
-                        <th>Gambar</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
@@ -40,9 +38,6 @@
                     <tr>
                         <td><?= $box['size']; ?></td>
                         <td><?= $box['capacity']; ?></td>
-                        <td>
-                            <img src="data:image/jpeg;base64,<?= base64_encode($box['gambar']); ?>" alt="Gambar Box" width="100">
-                        </td>
                         <td>
                             <a href="<?= BASEURL; ?>/box/hapus/<?= $box['id_size']; ?>" class="btn btn-danger btn-icon-split" style="width: 60px;" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</a>
                             <a href="<?= BASEURL; ?>/box/form/<?= $box['id_size']; ?>" class="btn btn-primary btn-icon-split" style="width: 60px;">Edit</a>

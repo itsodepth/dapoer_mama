@@ -18,30 +18,48 @@ class Pesanan_model {
                     pesanan.cara_bayar,
                     pesanan.jumlah,
                     pesanan.totalharga,
-                    pesanan.status
+                    pesanan.status_pes
                         FROM ' . $this->table . ' INNER JOIN user on pesanan.id_user = user.id_user ORDER BY waktu DESC');
         return $this->db->resultSet();
     }
 
     public function getPesananById($id_pes){
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_pes = :id_pes');
+        $this->db->query('SELECT 
+                    pesanan.id_pes,
+                    user.username,
+                    pesanan.waktu,
+                    pesanan.alamat,
+                    user.tlp,
+                    pesanan.cara_bayar,
+                    pesanan.jumlah,
+                    pesanan.totalharga,
+                    pesanan.status_pes 
+                        FROM ' . $this->table . ' INNER JOIN user on pesanan.id_user = user.id_user WHERE id_pes = :id_pes');
         $this->db->bind('id_pes', $id_pes);
+        $pesanan = $this->db->single();
+        
+        // Ambil data pembayaran
+        $pembayaran = $this->getPembayaranById($id_pes);
+        
+        // Gabungkan data pesanan dan pembayaran
+        return array_merge($pesanan, $pembayaran);
+    }
+
+    public function getDetailPesananById($id_pes) {
+        $this->db->query('SELECT * FROM detail_pesanan WHERE id_pes = :id_pes');
+        $this->db->bind('id_pes', $id_pes);
+        return $this->db->resultSet();
+    }
+
+    public function getMenuById($id_menu) {
+        $this->db->query('SELECT * FROM menu WHERE id_menu = :id_menu');
+        $this->db->bind('id_menu', $id_menu);
         return $this->db->single();
     }
 
-    public function tambahDataPesanan($data){
-        $this->db->query('INSERT INTO pesanan (username, waktu, status, alamat, cara_bayar, jumlah, totalharga, id_size) VALUES (:username, :waktu, :status, :alamat, :cara_bayar, :jumlah, :totalharga, :id_size)');
-        $this->db->bind('username', $data['username']);
-        $this->db->bind('waktu', $data['waktu']);
-        $this->db->bind('status', $data['status']);
-        $this->db->bind('alamat', $data['alamat']);
-        $this->db->bind('cara_bayar', $data['cara_bayar']);
-        $this->db->bind('jumlah', $data['jumlah']);
-        $this->db->bind('totalharga', $data['totalharga']);
-        $this->db->bind('id_size', $data['id_size']);
-        $this->db->execute();
-        
-        return $this->db->rowCount();
+    public function getAllSizes() {
+        $this->db->query('SELECT * FROM size_box');
+        return $this->db->resultSet();
     }
 
     public function cariDataPesanan(){
@@ -51,6 +69,25 @@ class Pesanan_model {
         $this->db->bind('keyword', '%'. $keyword . '%');
 
         return $this->db->resultSet();
+    }
+
+    public function updateStatusPesanan($data) {
+        $id_pes = $data['id_pes'];
+        $status_pes = $data['status']; // Pastikan ini diambil dari form
+    
+        $query = "UPDATE pesanan SET status_pes = :status_pes WHERE id_pes = :id_pes";
+        $this->db->query($query);
+        $this->db->bind('status_pes', $status_pes);
+        $this->db->bind('id_pes', $id_pes);
+    
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function getPembayaranById($id_pes) {
+        $this->db->query('SELECT * FROM pembayaran WHERE id_pes = :id_pes');
+        $this->db->bind('id_pes', $id_pes);
+        return $this->db->single(); // Pastikan ini mengembalikan satu baris data
     }
 }
 ?>

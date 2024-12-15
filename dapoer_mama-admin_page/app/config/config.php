@@ -1,6 +1,6 @@
 <?php
 
-define ('BASEURL', 'http://localhost/dapoer_mama/public');
+define ('BASEURL', 'http://localhost/dapoer_mama/dapoer_mama-admin_page/public/');
 
 //DB
 define('DB_HOST', 'localhost');
