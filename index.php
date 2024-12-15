@@ -43,28 +43,19 @@ $id_user = $_SESSION['id_user'];
                             <li class="nav-item">
                                 <a class="nav-link" href="pesan-menu/pesan.php">Pesan</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin-right: 10px;">
                                 <a class="nav-link"
-                                    href="pesan-menu/history/history.php?id_user=<?php echo $id_user; ?>">History</a>
+                                    href="pesan-menu/history/history.php?id_user=<?php echo $id_user; ?>">Histori</a>
                             </li>
                             <li class="nav-item">
                                 <?php if ($is_logged_in): ?>
-                                <nav>
-                                    <div class="toggle"><span class="fa fa-bars"></span></div>
-                                    <ul class="menu">
-                                        <li><a
-                                                href="profile-screen/profile.php?id_user=<?php echo $id_user; ?>">Profile</a>
-                                        </li>
-                                        <li><a href="logout.php">Logout</a></li>
-                                    </ul>
-                                </nav>
+                                <a class="nav-link" href="profile-screen/profile.php?id_user=<?php echo $id_user; ?>">
+                                    <i class="bi bi-person-circle" style="font-size: 28px;"></i>
+                                </a>
                                 <?php else: ?>
-                                <!-- Jika belum login -->
-                                <a class="nav-link" href="login.php"><i class="bi bi-person-circle"
-                                        style="font-size: 28px"></i></a>
+                                <a class="btn btn-outline-light" href="login/login.php">Login</a>
                                 <?php endif; ?>
                             </li>
-
                         </ul>
                     </div>
                 </div>

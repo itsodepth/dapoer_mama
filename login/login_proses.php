@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user['level'] == 2) {
                 header("Location: dapoer_mama-admin_page/app/views/admin/dashboard.php");
             } else if ($user['level'] == 1) {
-                header("Location: dapoer_mama-user_page/index.html");
+                header("Location: ../index.php");
             }
             exit;
         } else {

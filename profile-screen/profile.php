@@ -1,17 +1,20 @@
 <?php
 session_start(); // Menggunakan session untuk autentikasi
 
-// Ambil id_user dari URL
-if (isset($_GET['id_user'])) {
-    $id_user = intval($_GET['id_user']); // Pastikan untuk mengamankan input
-} else {
-    die("ID user tidak ditemukan.");
-}
-
 include "koneksi.php"; // Memasukkan konfigurasi database
 
-// Ambil ID user dari session atau parameter GET/POST
-$id_user = $_SESSION['id_user'];
+// Pastikan koneksi berhasil
+if ($conn instanceof mysqli && $conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
+// Ensure $conn is a valid mysqli object
+if (!($conn instanceof mysqli)) {
+    die("Invalid database connection");
+}
+
+// Ambil id_user dari URL atau session
+$id_user = isset($_GET['id_user']) ? intval($_GET['id_user']) : $_SESSION['id_user'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['update_profile'])) {
@@ -25,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Query update data
         $sql = "UPDATE user SET username=?, email=?, tlp=?, kode_pos=?, alamat=? WHERE id_user=?";
         $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            die("Prepare statement failed: " . $conn->error);
+        }
         $stmt->bind_param("sssssi", $username, $email, $tlp, $kode_pos, $alamat, $id_user);
 
         if ($stmt->execute()) {
@@ -68,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Ambil data user untuk diisi di form
 $result = $conn->query("SELECT * FROM user WHERE id_user=$id_user");
+if (!$result) {
+    die("Query gagal: " . $conn->error);
+}
 $user = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
@@ -108,10 +117,12 @@ $user = $result->fetch_assoc();
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Histori</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin-right: 10px;">
                                 <a class="nav-link" href="../pesan-menu/pesan.php">Pesan</a>
                             </li>
-                            <li><a href="../logout.php">Logout</a></li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-light" href="../logout/logout.php" role="button">Logout</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -119,65 +130,71 @@ $user = $result->fetch_assoc();
         </header>
 
         <!-- Main Content -->
-                <div class="container" style="margin-top: 80px">
-                <h2 class="text-center my-4">Personal Info</h2>
+        <div class="container" style="margin-top: 80px">
+            <h2 class="text-center my-4">Personal Info</h2>
 
-                <!-- Pesan Notifikasi -->
-                <?php if (isset($message)): ?>
-                    <div class="alert alert-info">
-                        <?= htmlspecialchars($message); ?>
-                    </div>
-                <?php endif; ?>
-
-                <!-- Form Ubah Profile -->
-                <form method="POST" action="">
-                    <input type="hidden" name="update_profile">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username*</label>
-                        <input type="text" class="form-control" id="username" name="username" value="<?= htmlspecialchars($user['username']); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email*</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars($user['email']); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="tlp" class="form-label">No. Telepon*</label>
-                        <input type="tel" class="form-control" id="tlp" name="tlp" value="<?= htmlspecialchars($user['tlp']); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="kode_pos" class="form-label">Kode Pos*</label>
-                        <input type="text" class="form-control" id="kode_pos" name="kode_pos" value="<?= htmlspecialchars($user['kode_pos']); ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat*</label>
-                        <textarea class="form-control" id="alamat" name="alamat" rows="3" required><?= htmlspecialchars($user['alamat']); ?></textarea>
-                    </div>
-                    <div class="d-grid">
-                        <button class="btn btn-danger" type="submit">Simpan Perubahan</button>
-                    </div>
-                </form>
-
-                <!-- Form Ubah Password -->
-                <form method="POST" action="" class="mt-4">
-                    <input type="hidden" name="change_password">
-                    <h4>Ubah Password</h4>
-                    <div class="mb-3">
-                        <label for="password_lama" class="form-label">Password Lama*</label>
-                        <input type="password" class="form-control" id="password_lama" name="password_lama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password_baru" class="form-label">Password Baru*</label>
-                        <input type="password" class="form-control" id="password_baru" name="password_baru" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="konfirmasi_password" class="form-label">Konfirmasi Password*</label>
-                        <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" required>
-                    </div>
-                    <div class="d-grid">
-                        <button class="btn btn-danger" type="submit">Ubah Password</button>
-                    </div>
-                </form>
+            <!-- Pesan Notifikasi -->
+            <?php if (isset($message)): ?>
+            <div class="alert alert-info">
+                <?= htmlspecialchars($message); ?>
             </div>
+            <?php endif; ?>
+
+            <!-- Form Ubah Profile -->
+            <form method="POST" action="">
+                <input type="hidden" name="update_profile">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username*</label>
+                    <input type="text" class="form-control" id="username" name="username"
+                        value="<?= htmlspecialchars($user['username']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email*</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                        value="<?= htmlspecialchars($user['email']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tlp" class="form-label">No. Telepon*</label>
+                    <input type="tel" class="form-control" id="tlp" name="tlp"
+                        value="<?= htmlspecialchars(sprintf('0%s', ltrim($user['tlp'], '0'))); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="kode_pos" class="form-label">Kode Pos*</label>
+                    <input type="text" class="form-control" id="kode_pos" name="kode_pos"
+                        value="<?= htmlspecialchars($user['kode_pos']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat*</label>
+                    <textarea class="form-control" id="alamat" name="alamat" rows="3"
+                        required><?= htmlspecialchars($user['alamat']); ?></textarea>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-danger" type="submit">Simpan Perubahan</button>
+                </div>
+            </form>
+
+            <!-- Form Ubah Password -->
+            <form method="POST" action="" class="mt-4">
+                <input type="hidden" name="change_password">
+                <h4>Ubah Password</h4>
+                <div class="mb-3">
+                    <label for="password_lama" class="form-label">Password Lama*</label>
+                    <input type="password" class="form-control" id="password_lama" name="password_lama" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password_baru" class="form-label">Password Baru*</label>
+                    <input type="password" class="form-control" id="password_baru" name="password_baru" required>
+                </div>
+                <div class="mb-3">
+                    <label for="konfirmasi_password" class="form-label">Konfirmasi Password*</label>
+                    <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password"
+                        required>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-danger" type="submit">Ubah Password</button>
+                </div>
+            </form>
+        </div>
         </main>
 
         <!-- Footer -->

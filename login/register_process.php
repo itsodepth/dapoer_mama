@@ -1,4 +1,6 @@
 <?php
+session_start(); // Memulai sesi
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -48,28 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // Insert the basic data into the database
-    $sql = "INSERT INTO user (username, email, password, level) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+    // Simpan data ke sesi untuk digunakan di langkah berikutnya
+    $_SESSION['username'] = $username;
+    $_SESSION['email'] = $email;
+    $_SESSION['hashed_password'] = $hashed_password;
+    $_SESSION['level'] = 1; // Default user level
 
-    // Set the default level (you can change this as per your requirements)
-    $level = 1; // Default user level
-
-    $stmt->bind_param("sssi", $username, $email, $hashed_password, $level);
-
-    if ($stmt->execute()) {
-        // Store the user's ID for the next step
-        $user_id = $stmt->insert_id;  // Get the last inserted user ID
-        session_start();
-        $_SESSION['user_id'] = $user_id;
-
-        // Redirect to the second step
-        header("Location: register_step2.php");
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
+    // Redirect to the second step
+    header("Location: register_step2.php");
+    exit();
 }
 
 $conn->close();

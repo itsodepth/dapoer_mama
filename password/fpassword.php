@@ -4,18 +4,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register</title>
+        <title>Forgot Password</title>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
         .btn-primary {
             background-color: #b93f3f;
+            /* Warna aksen yang diinginkan */
             border-color: #b93f3f;
-        }
-
-        .form-label {
-            color: #000;
-            /* Warna teks untuk label agar kontras dengan background */
         }
 
         .card-header,
@@ -37,38 +33,29 @@
                 <div class="col-md-6">
                     <div class="card shadow">
                         <div class="card-header text-center">
-                            <h2>Form Registrasi</h2>
+                            <h2>Lupa Password</h2>
                         </div>
                         <div class="card-body">
-                            <form action="register_process.php" method="POST">
+                            <form action="verify_code_process.php" method="POST" onsubmit="showMessage()">
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="email" class="form-label">Alamat Email</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirm_password" class="form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" id="confirm_password"
-                                        name="confirm_password" required>
+                                    <label for="code_reset" class="form-label">Reset Code</label>
+                                    <input type="number" class="form-control" id="code_reset" name="code_reset"
+                                        required>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <a href="../password/fpassword.php" class="text-decoration-none">Lupa Password?</a>
-                                    <a href="login.php" class="text-decoration-none">Masuk</a>
+                                    <a href="../login/register.php" class="text-decoration-none">Daftar</a>
+                                    <a href="../login/login.php" class="text-decoration-none">Masuk</a>
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-3 w-100">Register</button>
+                                <button type="submit" class="btn btn-primary mt-3 w-100">Reset Password</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <!-- Bootstrap JS Bundle with Popper -->

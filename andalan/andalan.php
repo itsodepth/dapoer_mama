@@ -1,4 +1,13 @@
 <?php
+session_start(); // Memulai sesi
+
+// Periksa apakah pengguna sudah login
+if (!isset($_SESSION['id_user'])) {
+    // Jika belum login, arahkan ke halaman belum_login.php
+    header("Location: belum_login.php");
+    exit();
+}
+
 // Koneksi ke database
 $host = "localhost";
 $user = "root";
@@ -21,8 +30,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $menu = $result->fetch_assoc();
 
-// Periksa apakah pengguna sudah login
-$is_logged_in = isset($_SESSION['id_user']);
+// Data pengguna
 $id_user = $_SESSION['id_user'];
 
 // Mengonversi data gambar dari BLOB menjadi base64
@@ -130,7 +138,7 @@ if (!empty($menu['gambar'])) {
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
                 <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
-                    <a class="navbar-brand d-flex align-items-center" href="index.php">
+                    <a class="navbar-brand d-flex align-items-center" href="../index.php">
                         <img src="../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
                         <span>Dapoer Mama</span>
                     </a>
@@ -151,7 +159,7 @@ if (!empty($menu['gambar'])) {
                                     href="pesan-menu/history/history.php?id_user=<?php echo $id_user; ?>">History</a>
                             </li>
                             <li class="nav-item">
-                                <?php if ($is_logged_in): ?>
+                                <?php if (isset($_SESSION['id_user'])): ?>
                                 <nav>
                                     <div class="toggle"><span class="fa fa-bars"></span></div>
                                     <ul class="menu">
@@ -163,7 +171,7 @@ if (!empty($menu['gambar'])) {
                                 </nav>
                                 <?php else: ?>
                                 <!-- Jika belum login -->
-                                <a class="nav-link" href="login.php"><i class="bi bi-person-circle"
+                                <a class="nav-link" href="../login.php"><i class="bi bi-person-circle"
                                         style="font-size: 28px"></i></a>
                                 <?php endif; ?>
                             </li>
