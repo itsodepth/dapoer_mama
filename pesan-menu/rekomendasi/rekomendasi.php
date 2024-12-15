@@ -182,7 +182,6 @@ if (!empty($menu['gambar'])) {
             </div>
             <div class="form-section">
                 <form action="checkout.php" method="POST">
-                <input type="hidden" name="harga" value="<?= htmlspecialchars($menu['harga'] ?? 0) ?>" />
                     <div class="mb-3">
                         <label class="form-label">Isian box (max 5):</label>
                         <?php for ($i = 1; $i <= 5; $i++): ?>

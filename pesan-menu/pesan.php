@@ -2,42 +2,12 @@
 session_start();
 
 // Periksa apakah pengguna sudah login
-<<<<<<< HEAD
 $is_logged_in = isset($_SESSION['id_user']);
-=======
-$is_logged_in = isset($_SESSION['id_user']); 
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 $id_user = $_SESSION['id_user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-        <title>Pilih Size Box</title>
-        <style>
-            body {
-                font-family: "Nunito", sans-serif;
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            header {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-            }
-=======
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,71 +23,37 @@ $id_user = $_SESSION['id_user'];
             padding: 0;
             box-sizing: border-box;
         }
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
 
-            main {
-                padding-top: 80px; /* Tambahkan padding agar tidak tumpang tindih dengan navbar */
-            }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-<<<<<<< HEAD
-=======
-            .section-title {
-                font-family: "Nunito", sans-serif;
-                font-weight: bold;
-                color: #5e875e;
-                text-align: center;
-                margin-bottom: 30px;
-            }
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
-            .card {
-                border: 2px solid #ddd; /* Tambahkan properti ini */
-                border-radius: 10px; /* Tambahkan properti ini */
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-            }
+        .section-title {
+            font-family: "Nunito", sans-serif;
+            font-weight: bold;
+            color: #5e875e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-            .card-title {
-                font-weight: bold;
-            }
+        .card {
+            border: 2px solid #ddd;
+            /* Tambahkan properti ini */
+            border-radius: 10px;
+            /* Tambahkan properti ini */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* Efek bayangan */
+        }
 
-            .card-text {
-                color: #555;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #b93f3f">
-                <div class="container-fluid" style="margin-top: -5px; margin-bottom: -5px">
-                    <a class="navbar-brand d-flex align-items-center" href="../index.php">
-                        <img src="../assets/images/logo.png" alt="Logo" width="45" height="45" class="me-2" />
-                        <span>Dapoer Mama</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse d-flex" id="navbarNav">
-                        <ul class="navbar-nav ms-auto py-auto align-items-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="../index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="history/history.php?id_user=<?php echo $id_user; ?>">Histori</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pesan.php">Pesan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../profile-screen/profile.php?id_user=<?php echo $id_user; ?>"><i class="bi bi-person-circle" style="font-size: 28px"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        .card-title {
+            font-weight: bold;
+        }
 
-<<<<<<< HEAD
-=======
         .card-text {
             color: #555;
         }
@@ -142,7 +78,6 @@ $id_user = $_SESSION['id_user'];
                                 <a class="nav-link active" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
-<<<<<<< HEAD
                                 <a class="nav-link"
                                     href="history/history.php?id_user=<?php echo $id_user; ?>">Histori</a>
                             </li>
@@ -153,16 +88,6 @@ $id_user = $_SESSION['id_user'];
                                 <a class="nav-link"
                                     href="../profile-screen/profile.php?id_user=<?php echo $id_user; ?>"><i
                                         class="bi bi-person-circle" style="font-size: 28px"></i></a>
-=======
-                                <a class="nav-link" href="#">Histori</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pesan.html">Pesan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../profile-screen/profile.html"><i class="bi bi-person-circle"
-                                        style="font-size: 28px"></i></a>
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                             </li>
                         </ul>
                     </div>
@@ -170,12 +95,7 @@ $id_user = $_SESSION['id_user'];
             </nav>
         </header>
 
-<<<<<<< HEAD
         <main class="container pt-5">
-=======
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
-        <main class="container my-5">
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
             <h2 class="section-title">Pilih Size Box</h2>
             <div class="row text-center">
                 <!-- Small Box -->
@@ -216,7 +136,6 @@ $id_user = $_SESSION['id_user'];
                 </div>
             </div>
 
-<<<<<<< HEAD
             <section>
                 <h2 class="section-title">Menu Rekomendasi</h2>
                 <div class="row">
@@ -264,123 +183,11 @@ $id_user = $_SESSION['id_user'];
                     <?php $host->close(); ?>
                 </div>
             </section>
-=======
-<<<<<<< HEAD
-                <section>
-                    <h2 class="section-title">Menu Rekomendasi</h2>
-                    <div class="row">
-                        <?php
-                        // Koneksi ke database
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $dbname = "catering";
-
-                        $host = new mysqli($servername, $username, $password, $dbname);
-                        if ($host->connect_error) {
-                            die("Koneksi gagal: " . $host->connect_error);
-                        }
-
-                        // Ambil data dari tabel
-                        $sql = "SELECT * FROM box_rek";
-                        $id_rek = $_GET['id_rek'] ?? 0;
-                        $result = $host->query($sql);
-
-                        // Render elemen HTML untuk setiap menu
-                        while ($row = $result->fetch_assoc()): 
-                            // Konversi data BLOB menjadi format base64
-                            $gambar = !empty($row['gambar']) 
-                                ? 'data:image/jpeg;base64,' . base64_encode($row['gambar']) 
-                                : '../assets/images/default.jpg';
-                        ?>
-                            <div class="col-3">
-                                
-                                <a href="rekomendasi/rekomendasi.php?id_rek=<?php echo $row['id_rek']; ?>" style="text-decoration: none; color: inherit">
-                                    <div class="card h-100 mx-2">
-                                        <!-- Gambar -->
-                                        <img 
-                                            src="<?= $gambar; ?>" 
-                                            class="card-img-top img-fluid h-100" 
-                                            alt="<?= $row['nama_menu']; ?>" 
-                                        />
-                                        <div class="card-body mb-0">
-                                            <h5 class="card-title mb-2"><?= $row['nama_menu']; ?></h5>
-                                            <p class="card-text mb-0">Rp<?= number_format($row['harga'], 0, ',', '.'); ?> per box</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endwhile; ?>
-                        <?php $host->close(); ?>
-                    </div>
-                </section>
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
 
 
         </main>
 
-<<<<<<< HEAD
-=======
-=======
-            <!-- Menu Rekomendasi Section -->
-            <section>
-                <h2 class="section-title">Menu Rekomendasi</h2>
-                <div class="row">
-                    <div class="col-3">
-                        <a href="rekomendasi1/rekomendasi1.html" style="text-decoration: none; color: inherit">
-                            <div class="card h-100 mx-2">
-                                <img src="../assets/images/menu1.jpg" class="card-img-top img-fluid h-100"
-                                    alt="Menu Rekomendasi 1" />
-                                <div class="card-body mb-0">
-                                    <h5 class="card-title mb-2">Ayam Bakar Madura</h5>
-                                    <p class="card-text mb-0">Rp12.000 per box</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="rekomendasi2/rekomendasi2.html" style="text-decoration: none; color: inherit">
-                            <div class="card h-100 mx-2">
-                                <img src="../assets/images/menu2.jpg" class="card-img-top img-fluid h-100"
-                                    alt="Menu Rekomendasi 2" />
-                                <div class="card-body">
-                                    <h5 class="card-title mb-2">Ayam Bakar Tuban</h5>
-                                    <p class="card-text mb-0">Rp10.000 per box</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="rekomendasi3/rekomendasi3.html" style="text-decoration: none; color: inherit">
-                            <div class="card h-100 mx-2">
-                                <img src="../assets/images/menu3.jpg" class="card-img-top img-fluid h-100"
-                                    alt="Menu Rekomendasi 3" />
-                                <div class="card-body">
-                                    <h5 class="card-title mb-2">Ayam Bakar Madu</h5>
-                                    <p class="card-text mb-0">Rp14.000 per box</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <a href="rekomendasi4/rekomendasi4.html" style="text-decoration: none; color: inherit">
-                            <div class="card h-100 mx-2">
-                                <img src="../assets/images/menu4.jpeg" class="card-img-top img-fluid h-100"
-                                    alt="Menu Rekomendasi 4" />
-                                <div class="card-body">
-                                    <h5 class="card-title mb-2">Ayam Bakar Solo</h5>
-                                    <p class="card-text mb-0">Rp20.000 per box</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
@@ -412,24 +219,6 @@ $id_user = $_SESSION['id_user'];
                     <h5 class="fw-bold">SOSIAL MEDIA</h5>
                     <p class="mb-1">
                         <i class="bi bi-instagram"></i>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                        <a href="https://instagram.com/dapoermama" class="text-white text-decoration-none">@dapoermama</a>
-                    </p>
-                    <p class="mb-1">
-                        <i class="bi bi-facebook"></i>
-                        <a href="https://facebook.com/Dapoermama_Official" class="text-white text-decoration-none">Dapoermama_Official</a>
-                    </p>
-                    <p class="mb-1">
-                        <i class="bi bi-tiktok"></i>
-                        <a href="https://tiktok.com/@dapoermama_official" class="text-white text-decoration-none">@dapoermama_official</a>
-                    </p>
-                    <p>
-                        <i class="bi bi-youtube"></i>
-                        <a href="https://youtube.com/@dapoermama" class="text-white text-decoration-none">@dapoermama</a>
-=======
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                         <a href="https://instagram.com/dapoermama"
                             class="text-white text-decoration-none">@dapoermama</a>
                     </p>
@@ -447,10 +236,6 @@ $id_user = $_SESSION['id_user'];
                         <i class="bi bi-youtube"></i>
                         <a href="https://youtube.com/@dapoermama"
                             class="text-white text-decoration-none">@dapoermama</a>
-<<<<<<< HEAD
-=======
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
                     </p>
                 </div>
 
@@ -479,12 +264,5 @@ $id_user = $_SESSION['id_user'];
             </div>
         </div>
     </footer>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-</html>
-=======
->>>>>>> 57aed091c831c25c39e546f8d798c4dff57db05f
 
 </html>
->>>>>>> a7be75aed93453bf42339a0413ba86ab18d63fe6
