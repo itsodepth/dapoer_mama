@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-        <title>Box Besar</title>
+        <title>Box Kecil</title>
         <style>
         body {
             font-family: "Nunito", sans-serif;
@@ -78,6 +78,7 @@
 
     <body>
         <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -128,6 +129,7 @@
                 </div>
                 <div class="form-section">
                     <form method="POST" action="proses_transaksi.php">
+                        <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']; ?>">
                         <div class="mb-3">
                             <label for="isian1" class="form-label">Isian box (max 5):</label>
                             <?php
@@ -137,7 +139,8 @@
                         $result = $conn->query($query);
 
                         for ($i = 1; $i <= 5; $i++) {
-                            echo '<select class="form-select mb-2" name="isian_box[]" id="isian' . $i . '"><option selected>Pilih isian box</option>';
+                            echo '<select class="form-select mb-2" name="isi_' . $i . '" id="isian' . $i . '" required>';
+                            echo '<option value="">Pilih isian box</option>';
                             while ($row = $result->fetch_assoc()) {
                                 if (
                                     ($i === 1 && $row['nama_kategori'] === 'Lauk Utama') ||
@@ -146,43 +149,43 @@
                                     ($i === 4 && $row['nama_kategori'] === 'Sambal') ||
                                     ($i === 5 && $row['nama_kategori'] === 'Kerupuk')
                                 ) {
-                                    echo '<option value="' . $row['id_isian'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_isian'] . ' (' . $row['nama_kategori'] . ' - Rp' . $row['harga'] . ')</option>';
+                                    echo '<option value="' . $row['nama_isian'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_isian'] . ' (' . $row['nama_kategori'] . ' - Rp' . $row['harga'] . ')</option>';
                                 }
                             }
                             echo '</select>';
-                            $result->data_seek(0); // Reset pointer for the next iteration
+                            $result->data_seek(0);
                         }
                         ?>
                         </div>
                         <div class="mb-3">
                             <label for="minuman" class="form-label">Minuman:</label>
-                            <select class="form-select" name="minuman" id="minuman">
-                                <option selected>Pilih minuman</option>
+                            <select class="form-select" name="minuman" id="minuman" required>
+                                <option value="">Pilih minuman</option>
                                 <?php
                             $query = "SELECT * FROM minuman";
                             $result = $conn->query($query);
                             while ($row = $result->fetch_assoc()) {
-                                echo '<option value="' . $row['id_minuman'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_minuman'] . ' (Rp' . $row['harga'] . ')</option>';
+                                echo '<option value="' . $row['nama_minuman'] . '" data-harga="' . $row['harga'] . '">' . $row['nama_minuman'] . ' (Rp' . $row['harga'] . ')</option>';
                             }
                             ?>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="quantity" class="form-label">Qty:</label>
-                            <input type="number" class="form-control" name="quantity" id="quantity"
-                                placeholder="Masukkan Jumlah" />
+                            <label for="jumlah" class="form-label">Qty:</label>
+                            <input type="number" class="form-control" name="jumlah" id="quantity"
+                                placeholder="Masukkan Jumlah" required />
                         </div>
                         <div class="mb-3">
-                            <label for="pembayaran" class="form-label">Pilih bayar:</label>
-                            <select class="form-select" name="pembayaran" id="pembayaran">
-                                <option selected>Pilih pembayaran</option>
-                                <option value="Lunas">Lunas</option>
-                                <option value="DP">DP (80%)</option>
+                            <label for="dp" class="form-label">Pilih bayar:</label>
+                            <select class="form-select" name="dp" id="pembayaran" required>
+                                <option value="">Pilih pembayaran</option>
+                                <option value="lunas">Lunas</option>
+                                <option value="80%">DP (80%)</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="totalHarga" class="form-label">Total Harga Keseluruhan:</label>
-                            <input type="text" class="form-control" name="totalHarga" id="totalHarga" readonly />
+                            <label for="harga" class="form-label">Total Harga Keseluruhan:</label>
+                            <input type="text" class="form-control" name="harga" id="totalHarga" readonly />
                         </div>
                         <button type="submit" class="btn btn-confirm w-100 text-center">Konfirmasi</button>
                     </form>
@@ -208,7 +211,7 @@
 
                 total += parseInt(minuman.dataset.harga || 0);
                 total *= parseInt(quantityInput.value || 1);
-                totalHargaInput.value = `Rp${total}`;
+                totalHargaInput.value = total;
             };
 
             document.querySelectorAll('[id^="isian"], #minuman, #quantity').forEach(element => {
