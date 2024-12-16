@@ -1,7 +1,7 @@
 <?php
-require 'koneksi.php'; // File koneksi database
+require '../login/koneksi.php'; // File koneksi database
 
-$id_user = $_SESSION['id_user'];
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

@@ -2,7 +2,7 @@
 session_start(); // Menggunakan session untuk autentikasi
 
 
-include "koneksi.php"; // Memasukkan konfigurasi database
+include "../login/koneksi.php"; // Memasukkan konfigurasi database
 
 // Ambil ID user dari session atau parameter GET/POST
 $id_user = $_SESSION['id_user'];
