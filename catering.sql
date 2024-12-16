@@ -642,7 +642,7 @@ ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
--- Constraints for table `laporan_penjualan`
+-- Constraints for table `laporan_penjualan`\\\\\\\
 --
 ALTER TABLE `laporan_penjualan`
   ADD CONSTRAINT `laporan_penjualan_ibfk_1` FOREIGN KEY (`id_pem`) REFERENCES `pembayaran` (`id_pem`);
@@ -664,3 +664,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
