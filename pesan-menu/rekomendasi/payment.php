@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// Pastikan sesi 'logged_in' dan 'id_user' diatur
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || !isset($_SESSION['id_user'])) {
-    header("Location: login.php");
-    exit();
-}
+
 
 // Ambil data dari query string
 $username = $_GET['username'] ?? ''; // Mengambil username
