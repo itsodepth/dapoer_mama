@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirect berdasarkan level
             if ($user['level'] == 2) {
-                header("Location: dapoer_mama-admin_page/app/views/admin/dashboard.php");
+                header("Location: ../dapoer_mama-admin_page/public");
             } else if ($user['level'] == 1) {
                 header("Location: ../index.php");
             }
