@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Waktu pembuatan: 15 Des 2024 pada 16.42
-=======
 -- Waktu pembuatan: 15 Des 2024 pada 15.15
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -131,22 +127,6 @@ CREATE TABLE `diskon` (
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
--- Struktur dari tabel `histori`
---
-
-CREATE TABLE `histori` (
-  `id_pes` int(10) NOT NULL,
-  `id_pelanggan` int(10) NOT NULL,
-  `waktu` date NOT NULL,
-  `status` enum('selesai','terkirim','sedang dibuat') NOT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `tlp` varchar(15) NOT NULL,
-  `cara_bayar` enum('dp','lunas') NOT NULL,
-  `jumlah` int(10) NOT NULL,
-  `totalharga` float NOT NULL,
-  `id_size` int(11) NOT NULL
-=======
 -- Struktur dari tabel `history`
 --
 
@@ -162,7 +142,6 @@ CREATE TABLE `history` (
   `jumlah` int(11) NOT NULL,
   `harga` float NOT NULL,
   `dp` enum('lunas','80%') NOT NULL
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -302,31 +281,6 @@ CREATE TABLE `pembayaran` (
 --
 
 CREATE TABLE `pesanan` (
-<<<<<<< HEAD
-  `id_history` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_size` int(11) NOT NULL,
-  `isi_1` varchar(255) NOT NULL,
-  `isi_2` varchar(255) NOT NULL,
-  `isi_3` varchar(255) NOT NULL,
-  `isi_4` varchar(255) NOT NULL,
-  `isi_5` varchar(255) NOT NULL,
-  `minuman` varchar(255) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `harga` float NOT NULL,
-  `dp` enum('lunas','80%') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `pesanan`
---
-
-INSERT INTO `pesanan` (`id_history`, `id_user`, `id_size`, `isi_1`, `isi_2`, `isi_3`, `isi_4`, `isi_5`, `minuman`, `jumlah`, `harga`, `dp`) VALUES
-(4, 21, 3, 'Ayam Bakar Solo', 'Tempe Goreng', 'Lalapan Komplit', 'Sambal Matah', 'Kerupuk Udang', 'Teh Botol', 12, 366000, 'lunas'),
-(5, 21, 3, 'Ayam Bakar Solo', 'Tempe Goreng', 'Lalapan Komplit', 'Sambal Matah', 'Kerupuk Udang', 'Teh Botol', 20, 610000, 'lunas'),
-(6, 21, 1, 'Ayam Bakar Solo', 'Tempe Goreng', 'Lalapan Komplit', 'Sambal Matah', 'Kerupuk Udang', 'Teh Botol', 200, 6100000, 'lunas');
-
-=======
   `id_pes` int(10) NOT NULL,
   `id_pelanggan` int(10) NOT NULL,
   `waktu` date NOT NULL,
@@ -339,7 +293,6 @@ INSERT INTO `pesanan` (`id_history`, `id_user`, `id_size`, `isi_1`, `isi_2`, `is
   `id_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 -- --------------------------------------------------------
 
 --
@@ -347,28 +300,11 @@ INSERT INTO `pesanan` (`id_history`, `id_user`, `id_size`, `isi_1`, `isi_2`, `is
 --
 
 CREATE TABLE `size_box` (
-<<<<<<< HEAD
-  `id_size` int(11) NOT NULL,
-  `size` enum('small','medium','large') NOT NULL,
-  `capacity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `size_box`
---
-
-INSERT INTO `size_box` (`id_size`, `size`, `capacity`) VALUES
-(1, 'small', 3),
-(2, 'medium', 5),
-(3, 'large', 7);
-
-=======
   `size` enum('small','medium','large') NOT NULL,
   `id_size` int(11) NOT NULL,
   `capacity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 -- --------------------------------------------------------
 
 --
@@ -476,20 +412,11 @@ ALTER TABLE `diskon`
   ADD PRIMARY KEY (`id_diskon`);
 
 --
-<<<<<<< HEAD
--- Indeks untuk tabel `histori`
---
-ALTER TABLE `histori`
-  ADD PRIMARY KEY (`id_pes`),
-  ADD UNIQUE KEY `id_size` (`id_size`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`);
-=======
 -- Indeks untuk tabel `history`
 --
 ALTER TABLE `history`
   ADD PRIMARY KEY (`id_history`),
   ADD KEY `id_user` (`id_user`);
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- Indeks untuk tabel `isian_box`
@@ -542,15 +469,9 @@ ALTER TABLE `pembayaran`
 -- Indeks untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-<<<<<<< HEAD
-  ADD PRIMARY KEY (`id_history`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_size` (`id_size`);
-=======
   ADD PRIMARY KEY (`id_pes`),
   ADD UNIQUE KEY `id_size` (`id_size`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- Indeks untuk tabel `size_box`
@@ -614,17 +535,10 @@ ALTER TABLE `diskon`
   MODIFY `id_diskon` int(10) NOT NULL AUTO_INCREMENT;
 
 --
-<<<<<<< HEAD
--- AUTO_INCREMENT untuk tabel `histori`
---
-ALTER TABLE `histori`
-  MODIFY `id_pes` int(10) NOT NULL AUTO_INCREMENT;
-=======
 -- AUTO_INCREMENT untuk tabel `history`
 --
 ALTER TABLE `history`
   MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- AUTO_INCREMENT untuk tabel `isian_box`
@@ -672,21 +586,13 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-<<<<<<< HEAD
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-=======
   MODIFY `id_pes` int(10) NOT NULL AUTO_INCREMENT;
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- AUTO_INCREMENT untuk tabel `size_box`
 --
 ALTER TABLE `size_box`
-<<<<<<< HEAD
-  MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-=======
   MODIFY `id_size` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
@@ -711,17 +617,10 @@ ALTER TABLE `detail_pesanan`
   ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`);
 
 --
-<<<<<<< HEAD
--- Ketidakleluasaan untuk tabel `histori`
---
-ALTER TABLE `histori`
-  ADD CONSTRAINT `histori_ibfk_2` FOREIGN KEY (`id_size`) REFERENCES `size_box` (`id_size`);
-=======
 -- Ketidakleluasaan untuk tabel `history`
 --
 ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- Ketidakleluasaan untuk tabel `laporan_penjualan`
@@ -734,20 +633,12 @@ ALTER TABLE `laporan_penjualan`
 --
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_diskon`) REFERENCES `diskon` (`id_diskon`),
-<<<<<<< HEAD
-  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_pes`) REFERENCES `histori` (`id_pes`);
-=======
   ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_pes`) REFERENCES `pesanan` (`id_pes`);
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
 
 --
 -- Ketidakleluasaan untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-<<<<<<< HEAD
-  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
-=======
->>>>>>> ff7a73aff3c4df03ff338163d2d55db3c5f8ec48
   ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_size`) REFERENCES `size_box` (`id_size`);
 COMMIT;
 
