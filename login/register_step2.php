@@ -1,7 +1,7 @@
 <?php
-session_start(); // Memulai sesi
-if (!isset($_SESSION['username']) || !isset($_SESSION['email']) || !isset($_SESSION['hashed_password'])) {
-    // Jika data dari langkah pertama tidak tersedia, arahkan kembali ke langkah pertama
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    // If user_id is not set, redirect to the first step
     header("Location: register_process.php");
     exit();
 }
@@ -26,32 +26,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $alamat = $_POST['alamat'];
     $tlp = $_POST['tlp'];
     $kode_pos = $_POST['kode_pos'];
+    $code_reset = $_POST['code_reset'];
+
+    // Get the user ID from session
+    $user_id = $_SESSION['user_id'];
 
     // Validate form fields
-    if (empty($alamat) || empty($tlp) || empty($kode_pos)) {
+    if (empty($alamat) || empty($tlp) || empty($kode_pos) || empty($code_reset)) {
         echo "All fields are required!";
         exit();
     }
 
-    // Get data from session (from step 1)
-    $username = $_SESSION['username'];
-    $email = $_SESSION['email'];
-    $hashed_password = $_SESSION['hashed_password'];
-    $level = $_SESSION['level'];
-
-    // Insert the complete data into the database
-    $sql = "INSERT INTO user (username, email, password, level, alamat, tlp, kode_pos) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    // Update the user record with the additional information
+    $sql = "UPDATE user SET alamat = ?, tlp = ?, kode_pos = ? code_reset = ? WHERE id_user = ?";
     $stmt = $host->prepare($sql);
-    $stmt->bind_param("sssisds", $username, $email, $hashed_password, $level, $alamat, $tlp, $kode_pos);
+    $stmt->bind_param("sssi", $alamat, $tlp, $kode_pos, $user_id);
 
     if ($stmt->execute()) {
         echo "Registration complete! You can now log in.";
-        // Clear session data after successful registration
-        session_unset();
-        session_destroy();
-
-        // Redirect to login page
-        header("Location: login.php");
+        header("Location: login.php"); // Redirect to login page
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -61,68 +54,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $host->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register - Step 2</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-        .btn-primary {
-            background-color: #b93f3f;
-            /* Warna aksen yang diinginkan */
-            border-color: #b93f3f;
-        }
-
-        .card-header,
-        .btn-primary {
-            background-color: #b93f3f;
-            border-color: #b93f3f;
-        }
-
-        .card-header {
-            color: #fff;
-            /* Warna teks untuk header card */
-        }
-        </style>
-    </head>
-
-    <body>
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card shadow">
-                        <div class="card-header text-center">
-                            <h2>Lengkapi Registrasi Kamu</h2>
-                        </div>
-                        <div class="card-body">
-                            <form action="register_step2.php" method="POST">
-                                <div class="mb-3">
-                                    <label for="alamat" class="form-label">Alamat Lengkap</label>
-                                    <input type="text" class="form-control" id="alamat" name="alamat" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="tlp" class="form-label">No Telepon</label>
-                                    <input type="text" class="form-control" id="tlp" name="tlp" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="kode_pos" class="form-label">Kode POS</label>
-                                    <input type="text" class="form-control" id="kode_pos" name="kode_pos" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3 w-100">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Step 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="input__container">
+        <div class="shadow__input"></div>
+        <form action="register_step2.php" method="POST">
+            <h2>Complete Your Registration</h2>
+            <div class="input__button__shadow">
+                <input type="text" name="alamat" required="required">
+                <span>Alamat Lengkap</span>
             </div>
-        </div>
-
-        <!-- Bootstrap JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-
+            <div class="input__button__shadow">
+                <input type="text" name="tlp" required="required">
+                <span>No Telepon</span>
+            </div>
+            <div class="input__button__shadow">
+                <input type="text" name="kode_pos" required="required">
+                <span>Kode POS</span>
+            </div>
+            <div class="input__button__shadow">
+                <input type="number" name="code_reset" required="required">
+                <span>code_reset</span>
+            </div>
+            <button type="submit" class="input__button__shadow"> register </button>
+        </form>
+    </div>
+</body>
 </html>
