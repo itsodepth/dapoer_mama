@@ -1,21 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", serif;
 }
-body{
+body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #b93f3f;
 }
-.box{
+.box {
     position: relative;
     width: 380px;
     height: 600px;
@@ -23,72 +21,71 @@ body{
     border-radius: 10px;
     overflow: hidden;
 }
-.box::before{
-    content: '';
+.box::before {
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 380px;
     height: 400px;
-    background: linear-gradient(0deg,transparent
-    ,transparent,#ffffff,#ffffff,#ffffff);
+    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
 }
-.box::after{
-    content: '';
+.box::after {
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 380px;
     height: 400px;
-    background: linear-gradient(0deg,transparent,transparent,#ffffff,#ffffff,#ffffff);
+    background: linear-gradient(0deg, transparent, transparent, #ffffff, #ffffff, #ffffff);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -3s;
 }
-.border-line{
+.border-line {
     position: absolute;
     top: 0;
     inset: 0;
 }
-.border-line::before{
-    content: '';
+.border-line::before {
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 380px;
     height: 400px;
-    background: linear-gradient(0deg,transparent,transparent,#b93f3f,#b93f3f,#b93f3f);
+    background: linear-gradient(0deg, transparent, transparent, #b93f3f, #b93f3f, #b93f3f);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -1.5s;
 }
-.border-line::after{
-    content: '';
+.border-line::after {
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 380px;
     height: 400px;
-    background: linear-gradient(0deg,transparent,transparent,#b93f3f,#b93f3f,#b93f3f);
+    background: linear-gradient(0deg, transparent, transparent, #b93f3f, #b93f3f, #b93f3f);
     z-index: 1;
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     animation-delay: -4.5s;
 }
 @keyframes animate {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }
-.box form{
+.box form {
     position: absolute;
     inset: 4px;
     background: #ffffff;
@@ -98,19 +95,19 @@ body{
     display: flex;
     flex-direction: column;
 }
-.box form h2{
+.box form h2 {
     color: #000000;
     font-size: 26px;
     font-weight: 500;
     text-align: center;
     letter-spacing: 1px;
 }
-.input-box{
+.input-box {
     position: relative;
     width: 300px;
     margin-top: 20px;
 }
-.input-box input{
+.input-box input {
     position: relative;
     width: 100%;
     padding: 20px 10px 10px;
@@ -124,7 +121,7 @@ body{
     transition: 0.5s;
     z-index: 10;
 }
-.input-box span{
+.input-box span {
     position: absolute;
     left: 0;
     padding: 20px 0px 10px;
@@ -136,7 +133,7 @@ body{
     z-index: 10;
 }
 .input-box input:valid ~ span,
-.input-box input:focus ~ span{
+.input-box input:focus ~ span {
     color: #000000;
     font-size: 12px;
     transform: translateY(-34px);
@@ -155,23 +152,23 @@ body{
 }
 
 .input-box input:valid ~ i,
-.input-box input:focus ~ i{
+.input-box input:focus ~ i {
     height: 44px;
 }
-.imp-links{
+.imp-links {
     display: flex;
     justify-content: space-between;
 }
-.imp-links a{
+.imp-links a {
     color: #000000;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
 }
-.imp-links a:hover{
+.imp-links a:hover {
     color: #000000;
 }
-.btn{
+.bottom {
     width: 40%;
     border: none;
     outline: none;
@@ -183,16 +180,14 @@ body{
     margin-top: 10px;
     cursor: pointer;
 }
-.btn:active{
+.bottom:active {
     opacity: 0.8;
 }
 
 .input__container {
-    position: relative;
+    position: static;
     background: #f0f0f0;
     padding: 20px;
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap: 15px;
     border: 4px solid #000;
@@ -202,59 +197,53 @@ body{
     transform: rotateX(10deg) rotateY(-10deg);
     perspective: 1000px;
     box-shadow: 10px 10px 0 #000;
-  }
-  
-  .input__container:hover {
+}
+
+.input__container:hover {
     transform: rotateX(5deg) rotateY(1 deg) scale(1.05);
     box-shadow: 25px 25px 0 -5px #e9b50b, 25px 25px 0 0 #000;
-  }
-  
-  .shadow__input {
+}
+
+.shadow__input {
     content: "";
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     left: 0;
     bottom: 0;
     z-index: -1;
     transform: translateZ(-50px);
-    background: linear-gradient(
-      45deg,
-      rgba(255, 107, 107, 0.4) 0%,
-      rgba(255, 107, 107, 0.1) 100%
-    );
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.4) 0%, rgba(255, 107, 107, 0.1) 100%);
     filter: blur(20px);
-  }
-  
-  .input__button__shadow {
+}
+
+.input__button__shadow {
     cursor: pointer;
     border: 3px solid #000;
     background: #e9b50b;
     transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
-    justify-content: stretch;
     align-items: center;
     padding: 10px;
     transform: translateZ(20px);
-    position: relative;
     z-index: 3;
     font-weight: bold;
     text-transform: uppercase;
-  }
-  
-  .input__button__shadow:hover {
+}
+
+.input__button__shadow:hover {
     background: #e9b50b;
     transform: translateZ(10px) translateX(-5px) translateY(-5px);
     box-shadow: 5px 5px 0 0 #000;
-  }
-  
-  .input__button__shadow svg {
+}
+
+.input__button__shadow svg {
     fill: #000;
     width: 25px;
     height: 25px;
-  }
-  
-  .input__search {
+}
+
+.input__search {
     width: 100%;
     outline: none;
     border: 3px solid #000;
@@ -268,22 +257,22 @@ body{
     z-index: 3;
     font-family: "Roboto", Arial, sans-serif;
     letter-spacing: -0.5px;
-  }
-  
-  .input__search::placeholder {
+}
+
+.input__search::placeholder {
     color: #666;
     font-weight: bold;
     text-transform: uppercase;
-  }
-  
-  .input__search:hover,
-  .input__search:focus {
+}
+
+.input__search:hover,
+.input__search:focus {
     background: #f0f0f0;
     transform: translateZ(20px) translateX(-5px) translateY(-5px);
     box-shadow: 5px 5px 0 0 #000;
-  }
-  
-  .input__container::before {
+}
+
+.input__container::before {
     position: absolute;
     top: -15px;
     left: 20px;
@@ -295,5 +284,4 @@ body{
     transform: translateZ(50px);
     z-index: 4;
     border: 2px solid #000;
-  }
-  
+}
