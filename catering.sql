@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 04:04 AM
+-- Generation Time: Dec 17, 2024 at 04:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -379,20 +379,22 @@ CREATE TABLE `user` (
   `level` enum('1','2') NOT NULL,
   `password` varchar(255) NOT NULL,
   `kode_pos` int(5) NOT NULL,
-  `alamat` varchar(255) NOT NULL
+  `alamat` varchar(255) NOT NULL,
+  `code_reset` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `email`, `tlp`, `level`, `password`, `kode_pos`, `alamat`) VALUES
-(1, 'user1', '', '', '1', 'user1', 0, ''),
-(2, 'admin1', '', '', '2', 'admin1', 0, ''),
-(6, 'isnan12', 'gatenggwp@gmail.com', '08588888888', '1', '$2y$10$O9MNyln/rY97We3z4YYX6.KRro/.EI1vYrKCraVPC/cKCVQRGsOfG', 57465, 'Mondokan Klepu Ceper'),
-(7, 'varel', 'varel@gmail.com', '08588888888', '2', '$2y$10$DGPpSr4VjY.kwUkX2AReXe085Y/WVB/TFObMSjXEU7Xh75WQ0jsWW', 57465, 'Mondokan Klepu Ceper'),
-(8, 'gaten', 'gatenggwp@gmail.com', '08588888888', '1', '$2y$10$vrQuZ9j73rMb5NR9qseOr.2oHxIEr/8L2mqF4WUTw9VloLdQM77qi', 57465, 'Mondokan Klepu Ceper'),
-(21, 'devano', 'devanoalfarizy04@gmail.com', '089675677821', '1', '$2y$10$sKSjBQ27SzAX0Sx1ZP1Yy..YXpXxM5Rdnd0BYuLQ.Te7nGO2X2L.q', 57169, 'perum griya tiara allam, Dusun I, Gumpang, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah');
+INSERT INTO `user` (`id_user`, `username`, `email`, `tlp`, `level`, `password`, `kode_pos`, `alamat`, `code_reset`) VALUES
+(1, 'user1', '', '', '1', 'user1', 0, '', 0),
+(2, 'admin1', '', '', '2', 'admin1', 0, '', 0),
+(7, 'varel', 'varel@gmail.com', '08588888888', '2', '$2y$10$1x7RnVtfenTHslBBnXIBnuQchZU3S8NVFt.mxp5B03FHxYwmodYPm', 57465, 'Mondokan Klepu Ceper', 0),
+(8, 'gaten', 'gatenggwp@gmail.com', '08588888888', '1', '$2y$10$X2wiz6Wx5wAjAVYDhBgvl.s/WzuUTKecqNkTxe0U1prbP0e5SIjAu', 57465, 'Mondokan Klepu Ceper', 0),
+(21, 'devano', 'devanoalfarizy04@gmail.com', '089675677821', '1', '$2y$10$sKSjBQ27SzAX0Sx1ZP1Yy..YXpXxM5Rdnd0BYuLQ.Te7nGO2X2L.q', 57169, 'perum griya tiara allam, Dusun I, Gumpang, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah', 0),
+(23, 'ari', 'ari@email.com', '8888888', '1', '$2y$10$iKM0gw2QxlNRxzOhZxDije9OU.y/q9lh37Lvt6QDnnLRqFFpmEPe.', 577788, 'alamat', 121),
+(24, 'udin', 'udin@email', '8888888', '1', '$2y$10$Go/W7ZdN9NwzFplHX/rPIO5mllj.k6RLssqpQF7DdB9dNILq1Lbfu', 577788, 'alamat', 12);
 
 --
 -- Indexes for dumped tables
@@ -623,7 +625,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
@@ -642,7 +644,7 @@ ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 
 --
--- Constraints for table `laporan_penjualan`\\\\\\\
+-- Constraints for table `laporan_penjualan`
 --
 ALTER TABLE `laporan_penjualan`
   ADD CONSTRAINT `laporan_penjualan_ibfk_1` FOREIGN KEY (`id_pem`) REFERENCES `pembayaran` (`id_pem`);
@@ -664,4 +666,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
