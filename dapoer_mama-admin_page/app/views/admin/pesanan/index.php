@@ -15,40 +15,35 @@
                 <thead>
                     <tr>
                         <th>Pemesan</th>
-                        <th>Waktu</th>
-                        <th>Alamat</th>
-                        <th>No. Telepon</th>
-                        <th>Cara Bayar</th>
+                        <th>Size</th>
+                        <th>Isian</th>
                         <th>Jumlah</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
+                        <th>Harga</th>
+                        <th>DP</th>
+                        <th>Alamat</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Pemesan</th>
-                        <th>Waktu</th>
-                        <th>Alamat</th>
-                        <th>No. Telepon</th>
-                        <th>Cara Bayar</th>
+                        <th>Size</th>
+                        <th>Isian</th>
                         <th>Jumlah</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
+                        <th>Harga</th>
+                        <th>DP</th>
+                        <th>Alamat</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     <?php foreach ($data['pesanan'] as $pesanan) : ?>
                     <tr>
                         <td><?= $pesanan['username']; ?></td>
-                        <td><?= $pesanan['waktu']; ?></td>
-                        <td><?= $pesanan['alamat']; ?></td>
-                        <td><?= $pesanan['tlp']; ?></td>
-                        <td><?= $pesanan['cara_bayar']; ?></td>
+                        <td><?= $pesanan['size']; ?></td>
+                        <td><?= $pesanan['isi_1']; ?>, <?= $pesanan['isi_2']; ?>, <?= $pesanan['isi_3']; ?>, <?= $pesanan['isi_4']; ?>, <?= $pesanan['isi_5']; ?>, <?= $pesanan['minuman']; ?></td>
                         <td><?= $pesanan['jumlah']; ?></td>
-                        <td><?= $pesanan['status_pes']; ?></td>
-                        <td>
-                            <a href="<?= BASEURL; ?>/pesanan/detail/<?= $pesanan['id_pes']; ?>" class="btn btn-primary btn-icon-split" style="width: 60px;">Detail</a>
-                        </td>
+                        <td><?= $pesanan['harga']; ?></td>
+                        <td><?= $pesanan['dp']; ?></td>
+                        <td><?= $pesanan['alamat']; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
