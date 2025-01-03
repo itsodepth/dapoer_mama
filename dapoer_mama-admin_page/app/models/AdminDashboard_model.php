@@ -1,14 +1,14 @@
 <?php
 class AdminDashboard_model {
     private $db;
-    private $table = 'pembayaran';
+    private $table = 'transaksi';
 
     public function __construct() {
         $this->db = new Database;
     }
 
     public function getAllPenghasilan() {
-        $this->db->query('SELECT SUM(total_bayar) AS total_penghasilan FROM pembayaran');
+        $this->db->query('SELECT SUM(total_harga) AS total_penghasilan FROM '. $this->table . ' ');
         $result = $this->db->single(); // Mengambil hasil sebagai array asosiatif
         
         // Periksa apakah hasilnya null dan set default 0 jika null
@@ -16,7 +16,7 @@ class AdminDashboard_model {
     }
     
     public function getAllPenghasilanByMonth() {
-        $this->db->query('SELECT SUM(total_bayar) AS total_penghasilan_bulan_ini FROM pembayaran WHERE MONTH(waktu_bayar) = MONTH(CURRENT_DATE) and YEAR(waktu_bayar) = YEAR(CURRENT_DATE)');
+        $this->db->query('SELECT SUM(total_harga) AS total_penghasilan_bulan_ini FROM '. $this->table . '  WHERE MONTH(tgl) = MONTH(CURRENT_DATE) and YEAR(tgl) = YEAR(CURRENT_DATE)');
         $result = $this->db->single(); // Mengambil hasil sebagai array asosiatif
         
         // Periksa apakah hasilnya null dan set default 0 jika null
@@ -25,10 +25,10 @@ class AdminDashboard_model {
 
     public function getPenghasilanPerBulan() {
         $this->db->query('
-            SELECT MONTH(waktu_bayar) AS bulan, SUM(total_bayar) AS total_penghasilan
-            FROM pembayaran
-            WHERE YEAR(waktu_bayar) = YEAR(CURRENT_DATE)
-            GROUP BY MONTH(waktu_bayar)
+            SELECT MONTH(tgl) AS bulan, SUM(total_harga) AS total_penghasilan
+            FROM '. $this->table . ' 
+            WHERE YEAR(tgl) = YEAR(CURRENT_DATE)
+            GROUP BY MONTH(tgl)
             ORDER BY bulan ASC
         ');
         $result = $this->db->resultSet(); // Mengambil hasil sebagai array
@@ -43,9 +43,9 @@ class AdminDashboard_model {
 
     public function getPenghasilanTahunIni() {
         $this->db->query('
-            SELECT SUM(total_bayar) AS total_penghasilan_tahun_ini
-            FROM pembayaran
-            WHERE YEAR(waktu_bayar) = YEAR(CURRENT_DATE)
+            SELECT SUM(total_harga) AS total_penghasilan_tahun_ini
+            FROM '. $this->table . ' 
+            WHERE YEAR(tgl) = YEAR(CURRENT_DATE)
         ');
         $result = $this->db->single(); // Mengambil hasil sebagai array asosiatif
         
